@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 17:13:21 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/04 19:30:48 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,9 @@ void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
 void				radix_sort(t_stack *pile_a, t_stack *pile_b);
 void				radix_sort_bits(t_stack *pile_a, t_stack *pile_b, int bit);
 void				assign_index(t_stack *pile_a);
+int					check_strategy(char *arg);
+void				type_stratgy(const char *str);
+int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_strcpy(char *src);
 
 #endif
