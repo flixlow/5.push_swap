@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:39:47 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 17:32:29 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:16:52 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("pa\n");
 }
 
-void pb(t_stack *stack_b, t_stack *stack_a)
+void	pb(t_stack *stack_b, t_stack *stack_a)
 {
-    t_list *top;
+	t_list	*top;
 
-    if (!stack_a || !stack_a->first)
-        return;
-    top = stack_a->first;
-    stack_a->first = top->next;
-    top->next = stack_b->first;
-    stack_b->first = top;
-    ft_printf("pb\n");
+	if (!stack_a || !stack_a->first)
+		return ;
+	top = stack_a->first;
+	stack_a->first = top->next;
+	top->next = stack_b->first;
+	stack_b->first = top;
+	ft_printf("pb\n");
 }

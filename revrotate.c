@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 11:40:16 by mobenhab          #+#    #+#             */
-/*   Updated: 2025/12/31 14:04:45 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:18:14 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	revrotate(t_stack *pile)
 	last->next = pile->first;
 	pile->first = last;
 }
+
 void	rra(t_stack *pile_a)
 {
 	revrotate(pile_a);

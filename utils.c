@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 15:51:16 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:18:44 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	printpile(t_stack *stack)
 	}
 	ft_printf("\n");
 }
+
 void	freepile(t_stack *stack)
 {
 	t_list	*current;
@@ -54,6 +55,7 @@ void	freepile(t_stack *stack)
 	}
 	free(stack);
 }
+
 double	compute_disorder(t_stack *stack)
 {
 	t_list	*i;

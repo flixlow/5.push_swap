@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 19:36:51 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 17:13:42 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:14:33 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	lstlen(t_stack *pile) // la len de la pile
 {
-	int n;
-	t_list *tmp;
-	
+	int			n;
+	t_list		*tmp;
+
 	tmp = pile->first;
 	n = 0;
 	while (tmp)
@@ -29,9 +29,9 @@ int	lstlen(t_stack *pile) // la len de la pile
 
 int	*cpy_chunk(t_list *pile, int size) // copie la pile dans un tableaux
 {
-	int *arr;
-	int i;
-	t_list *tmp;
+	int			*arr;
+	int			i;
+	t_list		*tmp;
 
 	i = 0;
 	tmp = pile;
@@ -49,9 +49,9 @@ int	*cpy_chunk(t_list *pile, int size) // copie la pile dans un tableaux
 
 void	sort_arr(int *arr, int size) // tri de tableaux
 {
-	int i;
-	int j;
-	int tmp;
+	int		i;
+	int		j;
+	int		tmp;
 
 	i = 0;
 	while (i < size)
@@ -72,10 +72,10 @@ void	sort_arr(int *arr, int size) // tri de tableaux
 }
 
 void	index_arr(t_list *pile, int *arr, int size)
-		// copie les indice dans ls liste
+// copie les indice dans ls liste
 {
-	t_list *tmp;
-	int i;
+	t_list		*tmp;
+	int			i;
 
 	tmp = pile;
 	while (tmp)

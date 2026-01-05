@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:06:47 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 17:51:44 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:11:12 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	radix_sort_bits(t_stack *pile_a, t_stack *pile_b, int bit)
 {
 	int	i;
 	int	num;
+	int	size;
 
-	int size = lstlen(pile_a); // taille initiale
+	size = lstlen(pile_a); // taille initiale
 	i = 0;
 	while (i < size)
 	{
@@ -52,7 +53,7 @@ void	radix_sort_bits(t_stack *pile_a, t_stack *pile_b, int bit)
 		{
 			pb(pile_b, pile_a);
 		}
-        i++;
+		i++;
 	}
 	while (pile_b->first)
 		pa(pile_a, pile_b); // remettre pile_b dans pile_a

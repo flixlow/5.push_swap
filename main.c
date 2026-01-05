@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 19:36:55 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:02:49 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -510,32 +510,32 @@
 // 	return (0);
 // }
 
-// int	main(int ac, char **av)
-// {
-// 	t_stack *a;
-// 	t_stack *b;
-// 	size_t len;
+int	main(int ac, char **av)
+{
+	t_stack *a;
+	t_stack *b;
+	size_t len;
 
-// 	len = 1;
-// 	a = creatpile();
-// 	b = creatpile();
-// 	if (ac < 2)
-// 	{
-// 		ft_printf("Error\n");
-// 		freepile(a);
-// 		freepile(b);
-// 		return (0);
-// 	}
-// 	while (av[len][0] == '-')
-// 	{
-// 		check_strategy(av[len]);
-// 		if (av[len + 1])
-// 		len++;
-// 		else
-// 		return (0);
-// 	}
-// 	init_stack(a, av, len);
-// 	printpile(a);
-// 	freepile(a);
-// 	freepile(b);
-// }
+	len = 1;
+	a = creatpile();
+	b = creatpile();
+	if (ac < 2)
+	{
+		ft_printf("Error\n");
+		freepile(a);
+		freepile(b);
+		return (0);
+	}
+	while (av[len][0] == '-')
+	{
+		check_strategy(av[len]);
+		if (av[len + 1])
+		len++;
+		else
+		return (0);
+	}
+	init_stack(a, av, len);
+	printpile(a);
+	freepile(a);
+	freepile(b);
+}

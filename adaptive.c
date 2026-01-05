@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 16:37:22 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 16:41:28 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:19:40 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	adaptative(t_stack *a, t_stack *b)
 {
-	double adap;
+	double	adap;
 
 	adap = compute_disorder(a);
 	if (adap < 0.2)
