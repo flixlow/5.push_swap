@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 15:52:19 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:35:24 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -515,7 +515,7 @@ int	main(int ac, char **av)
 	t_stack *a;
 	t_stack *b;
 	size_t len;
-	
+
 	len = 1;
 	a = creatpile();
 	b = creatpile();
@@ -526,12 +526,16 @@ int	main(int ac, char **av)
 		freepile(b);
 		return (0);
 	}
-	else if (ac >= 1)
+	while (av[len][0] == '-')
 	{
-		check_strategy(av[1]);
-		check_strategy(av[2]);
-		len = 3;
+		check_strategy(av[len]);
+		if (av[len + 1])
+		len++;
+		else
+		return (0);
 	}
 	init_stack(a, av, len);
 	printpile(a);
+	freepile(a);
+	freepile(b);
 }
