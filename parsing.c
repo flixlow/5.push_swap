@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 19:40:05 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 15:52:46 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ char	*ft_strcpy(char *src)
 {
 	char	*dest;
 	size_t	i;
-	size_t j;
-	
+	size_t	j;
+
 	j = 0;
 	i = 0;
 	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
@@ -78,18 +78,20 @@ int	check_strategy(char *arg)
 void	type_stratgy(const char *str)
 {
 	if (ft_strcmp(str, "simple") == 0)
-		ft_printf("simple");
+		ft_printf("simple\n");
 	else if (ft_strcmp(str, "medium") == 0)
-		ft_printf("medium");
+		ft_printf("medium\n");
 	else if (ft_strcmp(str, "complex") == 0)
-		ft_printf("complex");
+		ft_printf("complex\n");
 	else if (ft_strcmp(str, "adaptive") == 0)
-		ft_printf("adaptive");
+		ft_printf("adaptive\n");
+	else if (ft_strcmp(str, "bench") == 0)
+		ft_printf("bench\n");
 	else
-		{
-			printf("Error\n");
-			return ;
-		}
+	{
+		printf("Error\n");
+		return ;
+	}
 }
 int	ft_strcmp(const char *s1, const char *s2)
 {

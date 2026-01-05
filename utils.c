@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 13:26:06 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 15:51:16 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,18 @@ double	compute_disorder(t_stack *stack)
 	return ((double)mistakes / (double)total_pairs);
 }
 
-void	init_stack(t_stack *a, char **av)
+void	init_stack(t_stack *a, char **av, size_t len)
 {
-	int		i;
 	t_list	*new;
 	t_list	*last;
 
-	i = 1;
 	last = NULL;
-	while (av[i])
+	while (av[len])
 	{
 		new = malloc(sizeof(t_list));
 		if (!new)
 			return ;
-		new->content = ft_atoi(av[i]);
+		new->content = ft_atoi(av[len]);
 		new->index = 0;
 		new->next = NULL;
 		if (!a->first)
@@ -104,6 +102,6 @@ void	init_stack(t_stack *a, char **av)
 		else
 			last->next = new;
 		last = new;
-		i++;
+		len++;
 	}
 }

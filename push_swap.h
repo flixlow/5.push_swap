@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/04 19:30:48 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/05 15:51:10 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ int					lstlen(t_stack *pile);
 int					*cpy_chunk(t_list *pile, int size);
 void				sort_arr(int *arr, int size);
 void				index_arr(t_list *pile, int *arr, int size);
-void				print_stack(t_stack *stack, char *name);
+void				printpile(t_stack *stack);
 int					is_sorted(t_stack *pile_a);
 int					find_max_index(t_stack *b);
 int					find_pos_index(t_stack *b, int index);
 void				push_chunk(t_stack *a, t_stack *b);
 void				push_to_b(t_stack *a, t_stack *b, int chunk);
-void				init_stack(t_stack *a, char **av);
+void				init_stack(t_stack *a, char **av, size_t len);
 int					ft_atoi(const char *str);
 void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
 void				radix_sort(t_stack *pile_a, t_stack *pile_b);
