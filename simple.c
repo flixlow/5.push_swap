@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/03 19:26:42 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/05 19:40:04 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,29 @@ void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
 	while (pile_b->first)
 		pa(pile_a, pile_b);
 }
+
+//main pour tester
+// #include "push_swap.h"
+
+// int	main(int argc, char **argv)
+// {
+// 	t_stack	*pile_a;
+// 	t_stack	*pile_b;
+
+// 	if (argc < 2)
+// 		return (0);
+
+// 	init_stack(pile_a, argv, 1);
+// 	pile_b->first = NULL;
+
+// 	printpile(pile_a);
+// 	printpile(pile_b);
+
+// 	ft_insertion(pile_a, pile_b);
+
+// 	printpile(pile_a);
+// 	printpile(pile_b);
+
+// 	return (0);
+// }
 
