@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putvoid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 08:56:58 by flauweri          #+#    #+#             */
-/*   Updated: 2025/12/05 10:24:21 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:00:18 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../push_swap.h"
 
 int	ft_putvoid(void *n)
 {

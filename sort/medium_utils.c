@@ -6,11 +6,11 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 14:23:25 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 20:16:42 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:32:52 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_sorted(t_stack *pile_a) // pour savoir si la pile est deja trie
 {

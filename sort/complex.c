@@ -6,12 +6,12 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:06:47 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 20:11:12 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:33:04 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
+
 
 void	radix_sort(t_stack *pile_a, t_stack *pile_b)
 {

@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 20:17:51 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:00:51 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 
 typedef struct s_list
 {
@@ -35,23 +36,7 @@ typedef struct s_stack
 
 t_stack				*creatpile(void);
 
-int					ft_putchar(char c);
-int					ft_putstr(char *str);
 int					check_format(const char *str, va_list argptr);
-int					format_conversion(const char c, va_list argptr);
-int					ft_printf(const char *format, ...);
-int					ft_char(va_list argptr);
-int					ft_str(va_list argptr);
-int					ft_digit(va_list argptr);
-int					ft_putnbr(int n);
-int					ft_putnbr_uni(unsigned int n);
-int					ft_putnbrbase(unsigned int nbr);
-int					ft_base(va_list argptr);
-int					ft_putnbrbase_lower(unsigned int nbr);
-int					ft_base_lower(va_list argptr);
-int					ft_digit_uni(va_list argptr);
-int					ft_base_long(va_list argptr);
-int					ft_putnbrbase_long(unsigned long nbr);
 
 void				push(t_stack *stack, int new);
 void				printpile(t_stack *stack);
@@ -93,5 +78,31 @@ int					check_strategy(char *arg);
 void				type_stratgy(const char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *src);
-
+void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
+int					ft_printf(const char *str, ...);
+int					ft_putchar(char c);
+int					ft_putstr(char *str);
+int					ft_putnbr(int n);
+int					ft_putnbr_un(unsigned int n);
+int					ft_putnbr_base(unsigned long n);
+int					ft_putnbr_base_upper(unsigned int n);
+int					ft_putvoid(void *n);
+void				s_write(int *count, int re);
+int					ft_putchar(char c);
+int					ft_putstr(char *str);
+int					check_format(const char *str, va_list argptr);
+int					format_conversion(const char c, va_list argptr);
+int					ft_printf(const char *format, ...);
+int					ft_char(va_list argptr);
+int					ft_str(va_list argptr);
+int					ft_digit(va_list argptr);
+int					ft_putnbr(int n);
+int					ft_putnbr_uni(unsigned int n);
+int					ft_putnbrbase(unsigned int nbr);
+int					ft_base(va_list argptr);
+int					ft_putnbrbase_lower(unsigned int nbr);
+int					ft_base_lower(va_list argptr);
+int					ft_digit_uni(va_list argptr);
+int					ft_base_long(va_list argptr);
+int					ft_putnbrbase_long(unsigned long nbr);
 #endif

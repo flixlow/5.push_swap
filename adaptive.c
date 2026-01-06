@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 16:37:22 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 20:19:40 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:26:05 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	adaptative(t_stack *a, t_stack *b)
 
 	adap = compute_disorder(a);
 	if (adap < 0.2)
-		printpile(a);
+		insertion_sort(a,b);
 	else if (adap <= 0.5)
 		chunk_sort(a, b);
 	else

@@ -6,11 +6,11 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:40:11 by mobenhab          #+#    #+#             */
-/*   Updated: 2025/12/31 14:08:04 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:33:30 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rotate(t_stack *stack)
 {

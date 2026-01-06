@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 13:38:07 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:32:39 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	check_last(t_stack *pile_a, t_stack *pile_b, int *size)
+static void	check_last(t_stack *pile_a, t_stack *pile_b, int *size)
 {
 		pb(pile_b, pile_a);
 		rb(pile_b);
 		(*size)++;
 }
 
-void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
+static void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
 {
 	int	rotation;
 	
@@ -42,7 +42,7 @@ void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
 	}
 }
 
-void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
+static void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
 {
 	t_list	*mouv;
 	int		index;
@@ -62,7 +62,7 @@ void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
 	}
 }
 
-void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
+void	insertion_sort(t_stack *pile_a, t_stack *pile_b)
 {
     t_list *last;
 	int		size;
@@ -86,39 +86,8 @@ void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
 		}
 		else
 			check_middle(pile_a, pile_b, &size);
-
 	}
 	while (pile_b->first)
 		pa(pile_a, pile_b);
 }
 
-//main pour tester
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
-{
-	t_stack	*pile_a;
-	t_stack	*pile_b;
-
-	if (argc < 2)
-		return (0);
-	pile_a = creatpile();
-    pile_b = creatpile();
-    if (!pile_a || !pile_b)
-        return (1);
-	pile_a->first = NULL;	
-	init_stack(pile_a, argv, 1);
-	pile_b->first = NULL;
-
-	printpile(pile_a);
-	printpile(pile_b);
-
-	ft_insertion(pile_a, pile_b);
-
-	printpile(pile_a);
-	printpile(pile_b);
-
-	freepile(pile_a);
-	freepile(pile_b);
-	return (0);
-}
