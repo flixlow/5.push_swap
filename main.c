@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 16:33:05 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 18:09:20 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,17 @@
 
 int main(int ac, char **av)
 {
+    t_stack *a;
+    t_stack *b;
+    //t_stock stock;
+
     if (ac < 2)
     return (0);
-t_stack *a;
-t_stack *b;
 
-a = creatpile();
-b = creatpile();
-init_stack(a, &av[0], 1);
-printpile(a);
-insertion_sort(a, b);
-printpile(a);
+    a = creatpile();
+    b = creatpile();
+    init_stack(a, &av[0], 1);
+    printpile(a);
+    adaptative(a, b);
+    printpile(a);
 }
