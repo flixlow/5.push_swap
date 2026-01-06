@@ -6,17 +6,11 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 13:17:50 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:38:07 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_top(t_stack *pile_a, t_stack *pile_b, int *size)
-{
-	pb(pile_b, pile_a);
-	(*size)++;
-}
 
 void	check_last(t_stack *pile_a, t_stack *pile_b, int *size)
 {
@@ -30,12 +24,12 @@ void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
 	int	rotation;
 	
 	rotation = 0;
-	if (index <= (*size / 2))
+	if (index < (*size / 2))
 	{
 		while (rotation++ < index)
 			rb(pile_b);
 		pb(pile_b, pile_a);
-		while (--rotation >= 0)
+		while (rotation-- > 0)
 			rrb(pile_b);
 	}
 	else
@@ -43,7 +37,7 @@ void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
 		while (rotation++ < index)
 			rrb(pile_b);
 		pb(pile_b, pile_a);
-		while (rotation-- >= 0)
+		while (rotation-- > 0)
 			rb(pile_b);
 	}
 }
@@ -54,7 +48,8 @@ void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
 	int		index;
 
 	mouv = pile_b->first;
-	while (mouv->next != NULL)
+	index = 0;
+	while (index < *size)
 	{
 		if (pile_a->first->content > mouv->content)
 		{
@@ -80,7 +75,10 @@ void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
 	while (pile_a->first)
 	{
 		if (pile_a->first->content > pile_b->first->content)
-			check_top(pile_a, pile_b, &size);
+		{
+			pb(pile_b, pile_a);
+			size++;
+		}
 		else if (pile_a->first->content < last->content)
 		{
 			last = pile_a->first;
@@ -88,6 +86,7 @@ void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
 		}
 		else
 			check_middle(pile_a, pile_b, &size);
+
 	}
 	while (pile_b->first)
 		pa(pile_a, pile_b);
