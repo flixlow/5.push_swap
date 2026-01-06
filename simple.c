@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/05 19:40:04 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 10:11:19 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,31 @@ void	check_last(t_stack *pile_a, t_stack *pile_b, int *stack_size, t_list **last
 		(*stack_size)++;
 }
 
+void	rotation_count(t_stack *pile_a, t_stack *pile_b, void *f, void *g)
+{
+	int	rotation;
+	
+	rotation = 0;
+	while (rotation++ <= mouv->index)
+		f(pile_b);
+	pb(pile_b, pile_a);
+	while (rotation-- > 0)
+		g(pile_b);
+}
+
 void	check_middle(t_stack *pile_a, t_stack *pile_b, int *stack_size)
 {
 	t_list	*mouv;
-	int		rotation;
 
 	mouv = pile_b->first;
-	rotation = 0;
 	while (mouv->next != NULL)
 	{
 		if (pile_a->first->content > mouv->content)
 		{
 			if (mouv->index <= (*stack_size / 2))
-			{
-				while (rotation++ <= mouv->index)
-					rb(pile_b);
-				pb(pile_b, pile_a);
-				while (rotation-- > 0)
-					rrb(pile_b);
-			}
+				rotation_count(pile_a, pile_b, rb, rrb);
 			else
-			{
-				while (rotation++ <= mouv->index)
-					rrb(pile_b);
-				pb(pile_b, pile_a);
-				while (rotation-- > 0)
-					rb(pile_b);
-			}
+				rotation_count(pile_a, pile_b, rrb, rb);
 			(*stack_size)++;
 			return ;
 		}
@@ -84,27 +82,26 @@ void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
 }
 
 //main pour tester
-// #include "push_swap.h"
+#include "push_swap.h"
 
-// int	main(int argc, char **argv)
-// {
-// 	t_stack	*pile_a;
-// 	t_stack	*pile_b;
+int	main(int argc, char **argv)
+{
+	t_stack	*pile_a;
+	t_stack	*pile_b;
 
-// 	if (argc < 2)
-// 		return (0);
+	if (argc < 2)
+		return (0);
 
-// 	init_stack(pile_a, argv, 1);
-// 	pile_b->first = NULL;
+	init_stack(pile_a, argv, 1);
+	pile_b->first = NULL;
 
-// 	printpile(pile_a);
-// 	printpile(pile_b);
+	printpile(pile_a);
+	printpile(pile_b);
 
-// 	ft_insertion(pile_a, pile_b);
+	ft_insertion(pile_a, pile_b);
 
-// 	printpile(pile_a);
-// 	printpile(pile_b);
+	printpile(pile_a);
+	printpile(pile_b);
 
-// 	return (0);
-// }
-
+	return (0);
+}
