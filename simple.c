@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 11:03:43 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 11:54:19 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void	check_last(t_stack *pile_a, t_stack *pile_b, int *size, t_list **last)
 		(*size)++;
 }
 
-void	rotation_count(t_stack *pile_a, t_stack *pile_b, t_list *mouv, int *size)
+void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
 {
 	int	rotation;
 	
 	rotation = 0;
-	if (mouv->index <= (*size / 2))
+	if (index <= (*size / 2))
 	{
-		while (rotation++ <= mouv->index)
+		while (rotation++ <= index)
 			rb(pile_b);
 		pb(pile_b, pile_a);
 		while (rotation-- >= 0)
@@ -41,7 +41,7 @@ void	rotation_count(t_stack *pile_a, t_stack *pile_b, t_list *mouv, int *size)
 	}
 	else
 	{
-		while (rotation++ <= mouv->index)
+		while (rotation++ <= index)
 			rrb(pile_b);
 		pb(pile_b, pile_a);
 		while (rotation-- >= 0)
@@ -52,16 +52,18 @@ void	rotation_count(t_stack *pile_a, t_stack *pile_b, t_list *mouv, int *size)
 void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
 {
 	t_list	*mouv;
+	int		index;
 
 	mouv = pile_b->first;
 	while (mouv->next != NULL)
 	{
 		if (pile_a->first->content > mouv->content)
 		{
-			rotation_count(pile_a, pile_b, mouv, size);
+			rotation_count(pile_a, pile_b, index, size);
 			(*size)++;
 			return ;
 		}
+		index++;
 		mouv = mouv->next;
 	}
 }
