@@ -1,5 +1,0 @@
-1 : pour le tri simple je part sur un tri a insertion plus compatible avec les piles et les listes reste a aplique l'algo en code en c.
-2 : pour celui la le plus efficace  Chunk-based sorting (fait).
-3 : pour celui la Radix sort adaptation .(fait)
-4 : pas encore
-

@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 15:37:39 by mobenhab          #+#    #+#             */
-/*   Updated: 2025/12/10 14:28:56 by mobenhab         ###   ########.fr       */
+/*   Created: 2025/11/19 16:39:09 by flauweri          #+#    #+#             */
+/*   Updated: 2025/11/24 15:28:12 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_putchar(char c)
 {
-	va_list	argptr;
-	int		count;
-
-	va_start(argptr, format);
-	count = check_format(format, argptr);
-	va_end(argptr);
-	return (count);
+	return (write(1, &c, 1));
 }
