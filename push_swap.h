@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 18:01:10 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 18:50:41 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_stock
 	int reverse_rotate_a;
 	int	reverse_rotate_b;
 	int reverse_rotate_ab;
-	int dissorder;
+	float dissorder;
 }					t_stock;
 
 void				swap(t_stack *stack);
@@ -72,8 +72,8 @@ void				printpile(t_stack *stack);
 void				freepile(t_stack *stack);
 double				compute_disorder(t_stack *stack);
 
-void				adaptative(t_stack *a, t_stack *b);
-void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
+void				adaptative(t_stack *a, t_stack *b, t_stock *stock);
+void				insertion_sort(t_stack *pile_a, t_stack *pile_b, t_stock *stock);
 void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
 int					lstlen(t_stack *pile);
 int					*cpy_chunk(t_list *pile, int size);

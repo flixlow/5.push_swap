@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 16:52:39 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 18:48:20 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
 	}
 }
 
-void	insertion_sort(t_stack *pile_a, t_stack *pile_b)
+void	insertion_sort(t_stack *pile_a, t_stack *pile_b, t_stock *stock)
 {
     t_list *last;
 	int		size;

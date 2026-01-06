@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 18:09:20 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 18:46:47 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,29 @@
 // 	return (0);
 // }
 
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+		((char *)s)[i++] = (char)c;
+	return (s);
+}
+
 int main(int ac, char **av)
 {
     t_stack *a;
     t_stack *b;
-    //t_stock stock;
+    t_stock stock;
 
     if (ac < 2)
     return (0);
-
+    ft_memset(&stock, 0, 12);
     a = creatpile();
     b = creatpile();
     init_stack(a, &av[0], 1);
     printpile(a);
-    adaptative(a, b);
+    adaptative(a, b, &stock);
     printpile(a);
 }
