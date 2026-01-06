@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 15:49:59 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:52:39 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,19 @@ static void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *siz
 	rotation = 0;
 	if (index < (*size / 2))
 	{
-		while (rotation++ <= index)
+		while (rotation++ < index)
 			rb(pile_b);
 		pb(pile_b, pile_a);
-		while (rotation-- >= 0)
+		while (--rotation > 0)
 			rrb(pile_b);
 	}
 	else
 	{
-		while (rotation++ <= index)
+		rotation = *size;
+		while (rotation-- > index)
 			rrb(pile_b);
 		pb(pile_b, pile_a);
-		while (rotation-- >= 0)
+		while (rotation++ < *size)
 			rb(pile_b);
 	}
 }
@@ -74,7 +75,7 @@ void	insertion_sort(t_stack *pile_a, t_stack *pile_b)
 	size = 1;
 	while (pile_a->first)
 	{
-		if (pile_a->first->content > pile_b->first->content)
+		if (pile_a->first->content >= pile_b->first->content)
 		{
 			pb(pile_b, pile_a);
 			size++;
