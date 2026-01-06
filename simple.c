@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 11:54:19 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:17:50 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void	check_top(t_stack *pile_a, t_stack *pile_b, int *size)
 	(*size)++;
 }
 
-void	check_last(t_stack *pile_a, t_stack *pile_b, int *size, t_list **last)
+void	check_last(t_stack *pile_a, t_stack *pile_b, int *size)
 {
-		*last = pile_a->first;
 		pb(pile_b, pile_a);
 		rb(pile_b);
 		(*size)++;
@@ -33,15 +32,15 @@ void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
 	rotation = 0;
 	if (index <= (*size / 2))
 	{
-		while (rotation++ <= index)
+		while (rotation++ < index)
 			rb(pile_b);
 		pb(pile_b, pile_a);
-		while (rotation-- >= 0)
+		while (--rotation >= 0)
 			rrb(pile_b);
 	}
 	else
 	{
-		while (rotation++ <= index)
+		while (rotation++ < index)
 			rrb(pile_b);
 		pb(pile_b, pile_a);
 		while (rotation-- >= 0)
@@ -83,7 +82,10 @@ void	ft_insertion(t_stack *pile_a, t_stack *pile_b)
 		if (pile_a->first->content > pile_b->first->content)
 			check_top(pile_a, pile_b, &size);
 		else if (pile_a->first->content < last->content)
-			check_last(pile_a, pile_b, &size, &last);
+		{
+			last = pile_a->first;
+			check_last(pile_a, pile_b, &size);
+		}
 		else
 			check_middle(pile_a, pile_b, &size);
 	}
