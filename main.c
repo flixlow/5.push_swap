@@ -6,31 +6,30 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 14:59:17 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:46:42 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stock	stock;
+// int	main(int ac, char **av)
+// {
+// 	t_stack	*a;
+// 	t_stack	*b;
+// 	t_stock	stock;
 
-	if (ac < 2)
-		return (0);
-	ft_memset(&stock, 0, 48);
-	a = createpile();
-	b = createpile();
-	init_stack(a, &av[0], 1);
-	a->stock = &stock;
-	b->stock = &stock;
-	printpile(a);
-	adaptive(a, b);
-	printpile(a);
-	benchmark_mode(stock);
-}
+// 	if (check_args(av, &stock) == 1)
+// 		return (write(2, "Error\n", 6));
+// 	ft_memset(&stock, 0, 48);
+// 	a->stock = &stock;
+// 	b->stock = &stock;
+// 	a = createpile();
+// 	b = createpile();
+// 	init_stack(a, &av[0], 1);
+// 	printpile(a);
+// 	adaptive(a, b);
+// 	printpile(a);
+// }
 
 // int	main(int ac, char **av)
 // {

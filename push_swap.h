@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 15:03:19 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:40:23 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_stock
 	float	dissorder;
 	char	*strategy;
 	char	*theorical_complexity;
+	char	*bench;
 }					t_stock;
 
 typedef struct s_stack
@@ -90,7 +91,7 @@ void				radix_sort(t_stack *pile_a, t_stack *pile_b);
 void				radix_sort_bits(t_stack *pile_a, t_stack *pile_b, int bit);
 
 void				assign_index(t_stack *pile_a);
-int					check_strategy(char *arg);
+int					check_strategy(char *arg, t_stock *stock);
 void				type_stratgy(const char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *src);
