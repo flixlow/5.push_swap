@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:42:52 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/07 14:41:30 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:55:22 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	put_float(int title, float nbr)
 {
 	int	n;
 	
+	(void)title;
 	n = (int)nbr % 100;
 	put_nbr_fd(0, n);
 	nbr = (nbr - n) * 100;
@@ -73,16 +74,4 @@ void	benchmark_mode(t_stock stock)
 	put_nbr_fd(write(2, " rra: ", 6), stock.reverse_rotate_a);
 	put_nbr_fd(write(2, " rrb: ", 6), stock.reverse_rotate_b);
 	put_nbr_fd(write(2, " rrr: ", 6), stock.reverse_rotate_ab);
-}
-
-int main(void)
-{
-	t_stock	stock;
-
-	stock.dissorder = 49.33;
-	ft_memset(&stock, 0, 48);
-	stock.strategy = "adaptive";
-	stock.theorical_complexity = "O(nlogn)";
-	benchmark_mode(stock);
-	return (0);
 }

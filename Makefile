@@ -10,10 +10,13 @@ SORT := adaptive.c complex.c medium.c medium_utils.c simple.c
 
 OP := push.c  revrotate.c  rotate.c  swap.c
 
-SRC = $(addprefix ft_printf/,$(PRINTF))\
-			$(addprefix sort/,$(SORT))\
-			$(addprefix operations/,$(OP))\
-			parsing.c ft_atoi.c main.c stack_management.c benchmark_mode.c ft_split.c
+UTILS := parsing.c ft_atoi.c  stack_management.c benchmark_mode.c ft_split.c
+
+SRC = $(addprefix ft_printf/, $(PRINTF))\
+			$(addprefix algo/, $(SORT))\
+			$(addprefix operations/, $(OP))\
+			$(addprefix utils/, $(UTILS))\
+			main.c
 
 OBJ = $(SRC:.c=.o)
 
