@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:42:52 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/07 15:04:11 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 17:44:10 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ void	put_float(int title, float nbr)
 	int	n;
 
 	(void)title;
-	n = (int)nbr % 100;
-	put_nbr_fd(0, n);
-	nbr = (nbr - n) * 100;
+	put_nbr_fd(0, (int)nbr);
 	write(2, ".", 1);
 	n = (int)nbr % 100;
+	if (n < 10)
+		write(2, "0", 1);
 	put_nbr_fd(0, n);
 }
 
 void	benchmark_mode(t_stock stock)
 {
-	put_float(write(2, "[bench] disorder: ", 19), stock.dissorder);
+	put_float(write(2, "[bench] disorder: ", 19), (stock.dissorder * 100));
 	put_str_fd(write(2, "%\n[bench] strategy: ", 21), stock.strategy);
 	put_str_fd(write(2, " / ", 3), stock.theorical_complexity);
 	put_nbr_fd(write(2, "\n[bench] total_ops: ", 20), stock.total);

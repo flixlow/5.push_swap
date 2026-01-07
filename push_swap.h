@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 16:40:23 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 17:41:03 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void				radix_sort_bits(t_stack *pile_a, t_stack *pile_b, int bit);
 
 void				assign_index(t_stack *pile_a);
 int					check_strategy(char *arg, t_stock *stock);
-void				type_stratgy(const char *str);
+int					check_args(char **av, t_stock *stock, int *begin);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *src);
 

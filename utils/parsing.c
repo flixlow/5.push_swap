@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 17:26:29 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 17:40:11 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,30 +101,4 @@ int	check_args(char **av, t_stock *stock, int *begin)
 		i++;
 	}
 	return (0);
-}
-
-int	main(int ac, char **av)
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stock	stock;
-	int	begin;	
-
-	begin = 0;
-	if (ac <= 2)
-		return (write(2, "Error\n", 6));
-	a = createpile();
-	b = createpile();
-	a->stock = &stock;
-	b->stock = &stock;
-	ft_memset(&stock, 0, 48);
-	if (check_args(av, &stock, &begin) == 1)
-		return (write(2, "Error\n", 6));
-	init_stack(a, &av[begin], 1);
-	printpile(a);
-	adaptive(a, b);
-	printpile(a);
-	__builtin_printf("%s", stock.bench);
-	if (ft_strcmp(stock.bench, "bench") == 0)
-		benchmark_mode(stock);
 }

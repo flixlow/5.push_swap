@@ -6,30 +6,36 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 16:46:42 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 17:40:21 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	main(int ac, char **av)
-// {
-// 	t_stack	*a;
-// 	t_stack	*b;
-// 	t_stock	stock;
+int	main(int ac, char **av)
+{
+	t_stack	*a;
+	t_stack	*b;
+	t_stock	stock;
+	int	begin;	
 
-// 	if (check_args(av, &stock) == 1)
-// 		return (write(2, "Error\n", 6));
-// 	ft_memset(&stock, 0, 48);
-// 	a->stock = &stock;
-// 	b->stock = &stock;
-// 	a = createpile();
-// 	b = createpile();
-// 	init_stack(a, &av[0], 1);
-// 	printpile(a);
-// 	adaptive(a, b);
-// 	printpile(a);
-// }
+	begin = 0;
+	if (ac <= 2)
+		return (write(2, "Error\n", 6));
+	a = createpile();
+	b = createpile();
+	a->stock = &stock;
+	b->stock = &stock;
+	ft_memset(&stock, 0, 48);
+	if (check_args(av, &stock, &begin) == 1)
+		return (write(2, "Error\n", 6));
+	init_stack(a, &av[begin], 1);
+	printpile(a);
+	adaptive(a, b);
+	printpile(a);
+	if (ft_strcmp(stock.bench, "bench") == 0)
+		benchmark_mode(stock);
+}
 
 // int	main(int ac, char **av)
 // {
