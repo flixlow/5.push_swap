@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:39:47 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 14:33:24 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:20:46 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	stack_b->first = top->next;
 	top->next = stack_a->first;
 	stack_a->first = top;
+	stack_a->stock->push_a += 1;
+	stack_a->stock->total += 1;
 	ft_printf("pa\n");
 }
 
@@ -49,5 +51,7 @@ void	pb(t_stack *stack_b, t_stack *stack_a)
 	stack_a->first = top->next;
 	top->next = stack_b->first;
 	stack_b->first = top;
+	stack_a->stock->push_b += 1;
+	stack_a->stock->total += 1;
 	ft_printf("pb\n");
 }

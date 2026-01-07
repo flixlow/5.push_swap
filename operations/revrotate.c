@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   revrotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 11:40:16 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 14:33:27 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:21:16 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,16 @@ void	revrotate(t_stack *pile)
 void	rra(t_stack *pile_a)
 {
 	revrotate(pile_a);
+	pile_a->stock->reverse_rotate_a += 1;
+	pile_a->stock->total += 1;
 	ft_printf("rra\n");
 }
 
 void	rrb(t_stack *pile_b)
 {
 	revrotate(pile_b);
+	pile_b->stock->reverse_rotate_b += 1;
+	pile_b->stock->total += 1;
 	ft_printf("rrb\n");
 }
 
@@ -47,5 +51,7 @@ void	rrr(t_stack *pile_a, t_stack *pile_b)
 {
 	revrotate(pile_a);
 	revrotate(pile_b);
+	pile_a->stock->reverse_rotate_ab += 1;
+	pile_a->stock->total += 1;
 	ft_printf("rrr\n");
 }

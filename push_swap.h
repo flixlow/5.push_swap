@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 18:50:41 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:20:08 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-
 typedef struct s_list
 {
 	struct s_list	*next;
@@ -28,11 +27,6 @@ typedef struct s_list
 	int				index;
 
 }					t_list;
-
-typedef struct s_stack
-{
-	t_list			*first;
-}					t_stack;
 
 typedef struct s_stock
 {
@@ -47,8 +41,15 @@ typedef struct s_stock
 	int reverse_rotate_a;
 	int	reverse_rotate_b;
 	int reverse_rotate_ab;
+	int total;
 	float dissorder;
 }					t_stock;
+
+typedef struct s_stack
+{
+	t_list			*first;
+	t_stock			*stock;
+}					t_stack;
 
 void				swap(t_stack *stack);
 void				sa(t_stack *stack_a);
@@ -66,14 +67,14 @@ void				rra(t_stack *stack_a);
 void				rrb(t_stack *stack_b);
 void				rrr(t_stack *stack_a, t_stack *stack_b);
 
-t_stack				*creatpile(void);
+t_stack				*createpile(void);
 void				init_stack(t_stack *a, char **av, size_t len);
 void				printpile(t_stack *stack);
 void				freepile(t_stack *stack);
 double				compute_disorder(t_stack *stack);
 
-void				adaptative(t_stack *a, t_stack *b, t_stock *stock);
-void				insertion_sort(t_stack *pile_a, t_stack *pile_b, t_stock *stock);
+void				adaptative(t_stack *a, t_stack *b);
+void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
 void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
 int					lstlen(t_stack *pile);
 int					*cpy_chunk(t_list *pile, int size);
