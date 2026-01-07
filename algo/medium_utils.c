@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   medium_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 14:23:25 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 14:32:52 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:05:32 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	is_sorted(t_stack *pile_a) // pour savoir si la pile est deja trie
+int	is_sorted(t_stack *pile_a)
 {
 	t_list	*tmp;
 
-	if (!pile_a || !pile_a->first) // si ya qu'un element
+	if (!pile_a || !pile_a->first)
 		return (1);
 	tmp = pile_a->first;
 	while (tmp->next)
@@ -28,7 +28,7 @@ int	is_sorted(t_stack *pile_a) // pour savoir si la pile est deja trie
 	return (1);
 }
 
-int	find_max_index(t_stack *b) // pour savoir l'indice max
+int	find_max_index(t_stack *b)
 {
 	int			max;
 	t_list		*tmp;
@@ -37,14 +37,14 @@ int	find_max_index(t_stack *b) // pour savoir l'indice max
 	max = -1;
 	while (tmp)
 	{
-		if (tmp->index > max) // si l'indice est > que max du coup c'est le mex
-			max = tmp->index; // max recois l'indice max
+		if (tmp->index > max)
+			max = tmp->index;
 		tmp = tmp->next;
 	}
 	return (max);
 }
 
-int	find_pos_index(t_stack *b, int index) // savoir ou est l'indice max
+int	find_pos_index(t_stack *b, int index)
 {
 	int			pos;
 	t_list		*tmp;
@@ -53,23 +53,23 @@ int	find_pos_index(t_stack *b, int index) // savoir ou est l'indice max
 	pos = 0;
 	while (tmp)
 	{
-		if (tmp->index == index) // si l'indice est egale a max
-			return (pos);        // on a la pose dans la pile
+		if (tmp->index == index)
+			return (pos);
 		pos++;
 		tmp = tmp->next;
 	}
 	return (-1);
 }
 
-void	push_chunk(t_stack *a, t_stack *b) // push de a vers b en chunk
+void	push_chunk(t_stack *a, t_stack *b)
 {
 	int		max;
 	int		pos;
 
 	while (b->first)
 	{
-		max = find_max_index(b);      // avoir le max
-		pos = find_pos_index(b, max); // savoir ou il est
+		max = find_max_index(b);
+		pos = find_pos_index(b, max);
 		if (pos == 0)
 			pa(a, b);
 		else if (pos <= lstlen(b) / 2)

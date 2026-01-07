@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 14:03:12 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:59:17 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	main(int ac, char **av)
+{
+	t_stack	*a;
+	t_stack	*b;
+	t_stock	stock;
+
+	if (ac < 2)
+		return (0);
+	ft_memset(&stock, 0, 48);
+	a = createpile();
+	b = createpile();
+	init_stack(a, &av[0], 1);
+	a->stock = &stock;
+	b->stock = &stock;
+	printpile(a);
+	adaptive(a, b);
+	printpile(a);
+	benchmark_mode(stock);
+}
 
 // int	main(int ac, char **av)
 // {
@@ -48,24 +68,3 @@
 // 	freepile(a);
 // 	return (0);
 // }
-
-int main(int ac, char **av)
-{
-    t_stack *a;
-    t_stack *b;
-    t_stock stock;
-
-    if (ac < 2)
-        return (0);
-    ft_memset(&stock, 0, 48);
-    a = createpile();
-    b = createpile();
-    init_stack(a, &av[0], 1);
-    a->stock = &stock;
-    b->stock = &stock;
-    printpile(a);
-    adaptive(a, b);
-    printpile(a);
-    benchmark_mode(stock);
-    //ft_printf("%d", stock.total);
-}

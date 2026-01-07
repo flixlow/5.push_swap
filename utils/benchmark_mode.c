@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:42:52 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/07 14:55:22 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:04:11 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	put_nbr_fd(int title, int nbr)
 	c = 0;
 	(void)title;
 	if ((nbr / 10) > 0)
-		put_nbr_fd(0 ,nbr / 10);
+		put_nbr_fd(0, nbr / 10);
 	c = nbr % 10 + '0';
 	write(2, &c, 1);
 }
@@ -47,7 +47,7 @@ void	put_nbr_fd(int title, int nbr)
 void	put_float(int title, float nbr)
 {
 	int	n;
-	
+
 	(void)title;
 	n = (int)nbr % 100;
 	put_nbr_fd(0, n);

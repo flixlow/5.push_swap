@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 13:54:44 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:02:36 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static void	check_last(t_stack *pile_a, t_stack *pile_b, int *size)
 {
-		pb(pile_b, pile_a);
-		rb(pile_b);
-		(*size)++;
+	pb(pile_b, pile_a);
+	rb(pile_b);
+	(*size)++;
 }
 
-static void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *size)
+static void	rotation_count(t_stack *pile_a, t_stack *pile_b, int i, int *size)
 {
 	int	rotation;
-	
+
 	rotation = 0;
-	if (index < (*size / 2))
+	if (i < (*size / 2))
 	{
-		while (rotation++ < index)
+		while (rotation++ < i)
 			rb(pile_b);
 		pb(pile_b, pile_a);
 		while (--rotation > 0)
@@ -35,7 +35,7 @@ static void	rotation_count(t_stack *pile_a, t_stack *pile_b, int index, int *siz
 	else
 	{
 		rotation = *size;
-		while (rotation-- > index)
+		while (rotation-- > i)
 			rrb(pile_b);
 		pb(pile_b, pile_a);
 		while (rotation++ < *size)
@@ -65,7 +65,7 @@ static void	check_middle(t_stack *pile_a, t_stack *pile_b, int *size)
 
 void	insertion_sort(t_stack *pile_a, t_stack *pile_b)
 {
-    t_list *last;
+	t_list	*last;
 	int		size;
 
 	pile_a->stock->theorical_complexity = "O(n^2)";
@@ -90,4 +90,3 @@ void	insertion_sort(t_stack *pile_a, t_stack *pile_b)
 	while (pile_b->first)
 		pa(pile_a, pile_b);
 }
-

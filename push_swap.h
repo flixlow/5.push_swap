@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 14:05:19 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:03:19 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ typedef struct s_list
 
 typedef struct s_stock
 {
-	int	swap_a;
-	int swap_b;
-	int swap_ab;
-	int push_a;
-	int push_b;
-	int rotate_a;
-	int	rotate_b;
-	int rotate_ab;
-	int reverse_rotate_a;
-	int	reverse_rotate_b;
-	int reverse_rotate_ab;
-	int total;
-	float dissorder;
-	char *strategy;
-	char *theorical_complexity;
+	int		swap_a;
+	int		swap_b;
+	int		swap_ab;
+	int		push_a;
+	int		push_b;
+	int		rotate_a;
+	int		rotate_b;
+	int		rotate_ab;
+	int		reverse_rotate_a;
+	int		reverse_rotate_b;
+	int		reverse_rotate_ab;
+	int		total;
+	float	dissorder;
+	char	*strategy;
+	char	*theorical_complexity;
 }					t_stock;
 
 typedef struct s_stack
@@ -97,11 +97,7 @@ char				*ft_strcpy(char *src);
 
 int					check_format(const char *str, va_list argptr);
 int					format_conversion(const char c, va_list argptr);
-
 int					is_sorted(t_stack *pile_a);
-
-int					ft_atoi(const char *str);
-void				*ft_memset(void *s, int c, size_t n);
 
 int					ft_printf(const char *str, ...);
 int					ft_putchar(char c);
@@ -113,8 +109,9 @@ int					ft_putnbr_base_upper(unsigned int n);
 int					ft_putvoid(void *n);
 void				s_write(int *count, int re);
 
-void	benchmark_mode(t_stock stock);
-
-char	**ft_split(char const *s, char c);
+void				benchmark_mode(t_stock stock);
+void				*ft_memset(void *s, int c, size_t n);
+int					ft_atoi(const char *str);
+char				**ft_split(char const *s, char c);
 
 #endif

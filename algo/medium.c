@@ -6,13 +6,13 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 19:36:51 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 13:55:37 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:04:53 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	lstlen(t_stack *pile) // la len de la pile
+int	lstlen(t_stack *pile)
 {
 	int			n;
 	t_list		*tmp;
@@ -27,7 +27,7 @@ int	lstlen(t_stack *pile) // la len de la pile
 	return (n);
 }
 
-int	*cpy_chunk(t_list *pile, int size) // copie la pile dans un tableaux
+int	*cpy_chunk(t_list *pile, int size)
 {
 	int			*arr;
 	int			i;
@@ -47,7 +47,7 @@ int	*cpy_chunk(t_list *pile, int size) // copie la pile dans un tableaux
 	return (arr);
 }
 
-void	sort_arr(int *arr, int size) // tri de tableaux
+void	sort_arr(int *arr, int size)
 {
 	int		i;
 	int		j;
@@ -72,7 +72,6 @@ void	sort_arr(int *arr, int size) // tri de tableaux
 }
 
 void	index_arr(t_list *pile, int *arr, int size)
-// copie les indice dans ls liste
 {
 	t_list		*tmp;
 	int			i;
