@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 10:20:08 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:57:01 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void				printpile(t_stack *stack);
 void				freepile(t_stack *stack);
 double				compute_disorder(t_stack *stack);
 
-void				adaptative(t_stack *a, t_stack *b);
+void				adaptive(t_stack *a, t_stack *b);
 void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
 void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
 int					lstlen(t_stack *pile);
@@ -99,6 +99,7 @@ int					format_conversion(const char c, va_list argptr);
 int					is_sorted(t_stack *pile_a);
 
 int					ft_atoi(const char *str);
+void				*ft_memset(void *s, int c, size_t n);
 
 int					ft_printf(const char *str, ...);
 int					ft_putchar(char c);
