@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:34:09 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 10:01:49 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:54:44 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ void	insertion_sort(t_stack *pile_a, t_stack *pile_b)
     t_list *last;
 	int		size;
 
-	if (!pile_a || !pile_a->first || !pile_a->first->next)
-    	return ;
+	pile_a->stock->theorical_complexity = "O(n^2)";
 	pb(pile_b, pile_a);
 	last = pile_b->first;
 	size = 1;

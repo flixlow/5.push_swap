@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 19:36:51 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/06 14:32:48 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:55:37 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	chunk_sort(t_stack *pile_a, t_stack *pile_b)
 	int	*arr;
 	int	chunk;
 
+	pile_a->stock->theorical_complexity = "O(n√n)";
 	size = lstlen(pile_a);
 	arr = cpy_chunk(pile_a->first, size);
 	sort_arr(arr, size);

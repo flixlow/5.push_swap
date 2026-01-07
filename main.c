@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 10:56:02 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:51:19 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main(int ac, char **av)
     t_stock stock;
 
     if (ac < 2)
-    return (0);
+        return (0);
     ft_memset(&stock, 0, 12);
     a = createpile();
     b = createpile();
