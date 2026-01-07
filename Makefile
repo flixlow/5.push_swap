@@ -13,7 +13,7 @@ OP := push.c  revrotate.c  rotate.c  swap.c
 SRC = $(addprefix ft_printf/,$(PRINTF))\
 			$(addprefix sort/,$(SORT))\
 			$(addprefix operations/,$(OP))\
-			ft_format.c parsing.c utils_print.c ft_atoi.c main.c stack_management.c
+			ft_format.c parsing.c utils_print.c ft_atoi.c main.c stack_management.c benchmark_mode.c ft_split.c
 
 OBJ = $(SRC:.c=.o)
 

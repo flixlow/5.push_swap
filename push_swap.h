@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 13:41:15 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:05:19 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,9 @@ int					ft_putnbr_base(unsigned long n);
 int					ft_putnbr_base_upper(unsigned int n);
 int					ft_putvoid(void *n);
 void				s_write(int *count, int re);
+
+void	benchmark_mode(t_stock stock);
+
+char	**ft_split(char const *s, char c);
 
 #endif
