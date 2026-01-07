@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 12:27:59 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:41:15 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ typedef struct s_list
 
 typedef struct s_stock
 {
-	float dissorder;
-	char *strategy;
-	char *theorical_complexity;
 	int	swap_a;
 	int swap_b;
 	int swap_ab;
@@ -45,6 +42,9 @@ typedef struct s_stock
 	int	reverse_rotate_b;
 	int reverse_rotate_ab;
 	int total;
+	float dissorder;
+	char *strategy;
+	char *theorical_complexity;
 }					t_stock;
 
 typedef struct s_stack
