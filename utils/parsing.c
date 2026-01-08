@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 10:51:11 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:15:55 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,34 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 int	check_strategy(char *str, t_stock *stock)
 {
-	int	i;
+	int		i;
+	char	*cpy;
 
+	cpy = ft_strcpy(&str[2]);
 	i = 2;
 	if (ft_strcmp(str, "--simple") == 0)
-		stock->strategy = ft_strcpy(&str[2]);
+		stock->strategy = cpy;
 	else if (ft_strcmp(str, "--medium") == 0)
-		stock->strategy = ft_strcpy(&str[2]);
+		stock->strategy = cpy;
 	else if (ft_strcmp(str, "--complex") == 0)
-		stock->strategy = ft_strcpy(&str[2]);
+		stock->strategy = cpy;
 	else if (ft_strcmp(str, "--adaptive") == 0)
-		stock->strategy = ft_strcpy(&str[2]);
+		stock->strategy = cpy;
 	else if (ft_strcmp(str, "--bench") == 0)
-		stock->bench = ft_strcpy(&str[2]);
+		stock->strategy = cpy;
 	else
+	{
+		free(cpy);
 		return (1);
+	}
+	free(cpy);
 	return (0);
 }
 
 int	check_digits(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	if (str[i] == '-')
 		i++;
@@ -80,7 +86,7 @@ int	check_digits(char *str)
 			return (1);
 		i++;
 	}
-	return (0);	
+	return (0);
 }
 
 int	check_args(char **av, t_stock *stock, int *begin)

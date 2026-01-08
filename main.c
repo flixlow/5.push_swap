@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 14:28:03 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:09:13 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	freestock(t_stock *stock)
-{
-	if (stock->bench != NULL)
-		free(stock->bench);
-	if (stock->bench != NULL)
-		free(stock->strategy);
-	if (stock->bench != NULL)
-		free(stock->theorical_complexity);
-}
 
 int	main(int ac, char **av)
 {
@@ -38,15 +28,11 @@ int	main(int ac, char **av)
 	b->stock = &stock;
 	ft_memset(&stock, 0, sizeof(t_stock));
 	if (check_args(av, &stock, &begin) == 1)
-		return (write(2, "Error\n", 6));
+		return (ft_error(a, b, stock));
 	if (init_stack(a, &av[begin]) == 1)
-		return (write(2, "Error\n", 6));
-	// printpile(a);
+		return (ft_error(a, b, stock));
 	algo_choice(stock, a, b);
-	// printpile(a);
 	if (stock.bench != NULL)
 		benchmark_mode(stock);
-	freepile(a);
-	freepile(b);
-	freestock(&stock);
+	freeall(a, b, stock);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 12:39:19 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:08:40 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,22 @@ typedef struct s_list
 
 typedef struct s_stock
 {
-	int		swap_a;
-	int		swap_b;
-	int		swap_ab;
-	int		push_a;
-	int		push_b;
-	int		rotate_a;
-	int		rotate_b;
-	int		rotate_ab;
-	int		reverse_rotate_a;
-	int		reverse_rotate_b;
-	int		reverse_rotate_ab;
-	int		total;
-	char	*bench;
-	char	*strategy;
-	char	*theorical_complexity;
-	double	dissorder;
+	int				swap_a;
+	int				swap_b;
+	int				swap_ab;
+	int				push_a;
+	int				push_b;
+	int				rotate_a;
+	int				rotate_b;
+	int				rotate_ab;
+	int				reverse_rotate_a;
+	int				reverse_rotate_b;
+	int				reverse_rotate_ab;
+	int				total;
+	char			*bench;
+	char			*strategy;
+	char			*theorical_complexity;
+	double			dissorder;
 }					t_stock;
 
 typedef struct s_stack
@@ -116,5 +116,9 @@ void				*ft_memset(void *s, int c, size_t n);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
+
+int					ft_error(t_stack *a, t_stack *b, t_stock stock);
+void				freestock(t_stock *stock);
+void				freeall(t_stack *a, t_stack *b, t_stock stock);
 
 #endif
