@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:06:07 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:54:01 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ t_stack				*createpile(void);
 int					init_stack(t_stack *a, char **av);
 void				printpile(t_stack *stack);
 void				freepile(t_stack *stack);
-double				compute_disorder(t_stack *stack);
+float				compute_disorder(t_stack *stack);
 
-void				algo_choice(t_stock stock, t_stack *a, t_stack *b);
+void				algo_choice(t_stock *stock, t_stack *a, t_stack *b);
 void				adaptive(t_stack *a, t_stack *b);
 void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
 void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
@@ -111,15 +111,15 @@ int					ft_putnbr_base_upper(unsigned int n);
 int					ft_putvoid(void *n);
 void				s_write(int *count, int re);
 
-void				benchmark_mode(t_stock stock);
+void				benchmark_mode(t_stock *stock);
 void				*ft_memset(void *s, int c, size_t n);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
 
-int					ft_error(t_stack *a, t_stack *b, t_stock stock);
+int					ft_error(t_stack *a, t_stack *b, t_stock *stock);
 void				freestock(t_stock *stock);
-void				freeall(t_stack *a, t_stack *b, t_stock stock);
+void				freeall(t_stack *a, t_stack *b, t_stock *stock);
 int					free_str(char *str, int i);
 
 #endif

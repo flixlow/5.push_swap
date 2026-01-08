@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 15:53:29 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:48:31 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	freepile(t_stack *stack)
 	free(stack);
 }
 
-double	compute_disorder(t_stack *stack)
+float compute_disorder(t_stack *stack)
 {
 	t_list	*i;
 	t_list	*j;
@@ -81,7 +81,7 @@ double	compute_disorder(t_stack *stack)
 	}
 	if (total_pairs == 0)
 		return (0.0);
-	return ((double)mistakes / (double)total_pairs);
+	return ((float)mistakes / (float)total_pairs);
 }
 int	check_overflow(int content, char *str)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:04:07 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:54:07 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ int	main(int ac, char **av)
 	b->stock = &stock;
 	ft_memset(&stock, 0, sizeof(t_stock));
 	if (check_args(av, &stock, &begin) == 1)
-		return (ft_error(a, b, stock));
+		return (ft_error(a, b, &stock));
 	if (init_stack(a, &av[begin]) == 1)
-		return (ft_error(a, b, stock));
-	algo_choice(stock, a, b);
+		return (ft_error(a, b, &stock));
+	if (is_sorted(a))
+		return(ft_printf("bon\n"));
+	algo_choice(&stock, a, b);
+	__builtin_printf("%.2f\n", stock.dissorder * 100);
 	if (stock.bench != NULL)
-		benchmark_mode(stock);
-	freeall(a, b, stock);
+		benchmark_mode(&stock);
+	freeall(a, b, &stock);
 }

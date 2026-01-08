@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:19:39 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:29:48 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	check_strategy(char *str, t_stock *stock)
 	else if (ft_strcmp(str, "--adaptive") == 0)
 		stock->strategy = ft_strcpy(&str[2]);
 	else if (ft_strcmp(str, "--bench") == 0)
-		stock->strategy = ft_strcpy(&str[2]);
+		stock->bench = ft_strcpy(&str[2]);
 	else
 		return (1);
 	return (0);
