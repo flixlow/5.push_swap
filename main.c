@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 13:06:32 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:44:45 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ int	main(int ac, char **av)
 		return (write(2, "Error\n", 6));
 	if (init_stack(a, &av[begin]) == 1)
 		return (write(2, "Error\n", 6));
-	printpile(a);
+	// printpile(a);
 	algo_choice(stock, a, b);
-	printpile(a);
+	// printpile(a);
 	if (stock.bench != NULL)
 		benchmark_mode(stock);
+	freepile(a);
+	freepile(b);
 }
