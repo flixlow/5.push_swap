@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 14:43:32 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:53:29 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ int	check_overflow(int content, char *str)
 	
 	new_str = ft_itoa(content);
 	if (ft_strcmp(new_str, str) != 0)
+	{
+		free(new_str);
 		return (1);
+	}
 	free(new_str);
 	return (0);
 }
@@ -108,8 +111,6 @@ int	init_stack(t_stack *a, char **av)
 		if (!new)
 			return (1);
 		new->content = ft_atoi(av[i]);
-		if (check_overflow(new->content, av[i]) != 0)
-			return (1);
 		new->index = 0;
 		new->next = NULL;
 		if (!a->first)
@@ -117,6 +118,8 @@ int	init_stack(t_stack *a, char **av)
 		else
 			last->next = new;
 		last = new;
+		if (check_overflow(new->content, av[i]) != 0)
+			return (1);
 		i++;
 	}
 	return (0);
