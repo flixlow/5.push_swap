@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 11:54:06 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:43:32 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,16 @@ double	compute_disorder(t_stack *stack)
 		return (0.0);
 	return ((double)mistakes / (double)total_pairs);
 }
+int	check_overflow(int content, char *str)
+{
+	char	*new_str;
+	
+	new_str = ft_itoa(content);
+	if (ft_strcmp(new_str, str) != 0)
+		return (1);
+	free(new_str);
+	return (0);
+}
 
 int	init_stack(t_stack *a, char **av)
 {
@@ -98,7 +108,7 @@ int	init_stack(t_stack *a, char **av)
 		if (!new)
 			return (1);
 		new->content = ft_atoi(av[i]);
-		if (ft_strcmp(ft_itoa(new->content), av[i]) != 0)
+		if (check_overflow(new->content, av[i]) != 0)
 			return (1);
 		new->index = 0;
 		new->next = NULL;
