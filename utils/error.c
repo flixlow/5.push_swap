@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 15:08:31 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:05:59 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ void    freestock(t_stock *stock)
         free(stock->strategy);
     if (stock->bench != NULL)
         free(stock->theorical_complexity);
+}
+
+int free_str(char *str, int i)
+{
+    free(str);
+    return (i);
 }

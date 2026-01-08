@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 15:08:40 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:06:07 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ char				**ft_split(char const *s, char c);
 int					ft_error(t_stack *a, t_stack *b, t_stock stock);
 void				freestock(t_stock *stock);
 void				freeall(t_stack *a, t_stack *b, t_stock stock);
+int					free_str(char *str, int i);
 
 #endif

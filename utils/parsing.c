@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 15:15:55 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/08 17:19:39 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,14 @@ char	*ft_strcpy(char *src)
 		i++;
 	}
 	dest[i] = '\0';
-	return (dest);
+	while(dest[j])
+	{
+		src[j] = dest[j];
+		j++;
+	}
+	src[j] = '\0';
+	free(dest);
+	return (src);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)
@@ -49,27 +56,21 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 int	check_strategy(char *str, t_stock *stock)
 {
-	int		i;
-	char	*cpy;
+	int	i;
 
-	cpy = ft_strcpy(&str[2]);
 	i = 2;
 	if (ft_strcmp(str, "--simple") == 0)
-		stock->strategy = cpy;
+		stock->strategy = ft_strcpy(&str[2]);
 	else if (ft_strcmp(str, "--medium") == 0)
-		stock->strategy = cpy;
+		stock->strategy = ft_strcpy(&str[2]);
 	else if (ft_strcmp(str, "--complex") == 0)
-		stock->strategy = cpy;
+		stock->strategy = ft_strcpy(&str[2]);
 	else if (ft_strcmp(str, "--adaptive") == 0)
-		stock->strategy = cpy;
+		stock->strategy = ft_strcpy(&str[2]);
 	else if (ft_strcmp(str, "--bench") == 0)
-		stock->strategy = cpy;
+		stock->strategy = ft_strcpy(&str[2]);
 	else
-	{
-		free(cpy);
 		return (1);
-	}
-	free(cpy);
 	return (0);
 }
 
