@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 17:41:03 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:39:19 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ typedef struct s_stock
 	int		reverse_rotate_b;
 	int		reverse_rotate_ab;
 	int		total;
-	float	dissorder;
+	char	*bench;
 	char	*strategy;
 	char	*theorical_complexity;
-	char	*bench;
+	double	dissorder;
 }					t_stock;
 
 typedef struct s_stack
@@ -71,11 +71,12 @@ void				rrb(t_stack *stack_b);
 void				rrr(t_stack *stack_a, t_stack *stack_b);
 
 t_stack				*createpile(void);
-void				init_stack(t_stack *a, char **av, size_t len);
+int					init_stack(t_stack *a, char **av);
 void				printpile(t_stack *stack);
 void				freepile(t_stack *stack);
 double				compute_disorder(t_stack *stack);
 
+void				algo_choice(t_stock stock, t_stack *a, t_stack *b);
 void				adaptive(t_stack *a, t_stack *b);
 void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
 void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
@@ -113,6 +114,7 @@ void				s_write(int *count, int re);
 void				benchmark_mode(t_stock stock);
 void				*ft_memset(void *s, int c, size_t n);
 int					ft_atoi(const char *str);
+char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
 
 #endif

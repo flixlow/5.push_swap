@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 10:05:41 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:54:06 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,22 @@ double	compute_disorder(t_stack *stack)
 	return ((double)mistakes / (double)total_pairs);
 }
 
-void	init_stack(t_stack *a, char **av, size_t len)
+int	init_stack(t_stack *a, char **av)
 {
 	t_list	*new;
 	t_list	*last;
+	size_t	i;
 
+	i = 0;
 	last = NULL;
-	while (av[len])
+	while (av[i])
 	{
 		new = malloc(sizeof(t_list));
 		if (!new)
-			return ;
-		new->content = ft_atoi(av[len]);
+			return (1);
+		new->content = ft_atoi(av[i]);
+		if (ft_strcmp(ft_itoa(new->content), av[i]) != 0)
+			return (1);
 		new->index = 0;
 		new->next = NULL;
 		if (!a->first)
@@ -103,6 +107,7 @@ void	init_stack(t_stack *a, char **av, size_t len)
 		else
 			last->next = new;
 		last = new;
-		len++;
+		i++;
 	}
+	return (0);
 }

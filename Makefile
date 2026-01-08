@@ -6,11 +6,11 @@ CFLAGS = -Wall -Werror -Wextra -I.
 
 PRINTF := ft_printf.c ft_putchar.c ft_putnbr_base_upper.c ft_putnbr_un.c ft_putvoid.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c s_write.c \
 
-SORT := adaptive.c complex.c medium.c medium_utils.c simple.c
+SORT := algo_choice.c adaptive.c complex.c medium.c medium_utils.c simple.c
 
 OP := push.c  revrotate.c  rotate.c  swap.c
 
-UTILS := parsing.c ft_atoi.c  stack_management.c benchmark_mode.c ft_split.c
+UTILS := parsing.c ft_atoi.c  stack_management.c benchmark_mode.c ft_split.c ft_itoa.c
 
 SRC = $(addprefix ft_printf/, $(PRINTF))\
 			$(addprefix algo/, $(SORT))\
