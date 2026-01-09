@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 14:39:36 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:15:41 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 			return (ft_error(a, b, &stock));
 	}
 	if (is_sorted(a))
-		return(ft_printf("already sorted\n"));
+		return (ft_printf("already sorted\n"));
 	algo_choice(&stock, a, b);
 	if (stock.bench != NULL)
 		benchmark_mode(&stock);

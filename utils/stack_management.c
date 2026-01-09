@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:48:31 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:16:02 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ t_stack	*createpile(void)
 		return (NULL);
 	stack->first = NULL;
 	return (stack);
-}
-
-void	printpile(t_stack *stack)
-{
-	t_list	*element;
-
-	if (!stack)
-		return ;
-	element = stack->first;
-	while (element)
-	{
-		ft_printf("%d", element->content);
-		ft_printf("\n");
-		element = element->next;
-	}
 }
 
 void	freepile(t_stack *stack)
@@ -55,7 +40,7 @@ void	freepile(t_stack *stack)
 	free(stack);
 }
 
-float compute_disorder(t_stack *stack)
+float	compute_disorder(t_stack *stack)
 {
 	t_list	*i;
 	t_list	*j;
@@ -83,10 +68,11 @@ float compute_disorder(t_stack *stack)
 		return (0.0);
 	return ((float)mistakes / (float)total_pairs);
 }
+
 int	check_overflow(int content, char *str)
 {
 	char	*new_str;
-	
+
 	new_str = ft_itoa(content);
 	if (ft_strcmp(new_str, str) != 0)
 	{
@@ -124,3 +110,18 @@ int	init_stack(t_stack *a, char **av)
 	}
 	return (0);
 }
+
+// void	printpile(t_stack *stack)
+// {
+// 	t_list	*element;
+
+// 	if (!stack)
+// 		return ;
+// 	element = stack->first;
+// 	while (element)
+// 	{
+// 		ft_printf("%d", element->content);
+// 		ft_printf("\n");
+// 		element = element->next;
+// 	}
+// }

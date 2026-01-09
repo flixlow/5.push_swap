@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 14:26:32 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:07:35 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void				rrr(t_stack *stack_a, t_stack *stack_b);
 
 t_stack				*createpile(void);
 int					init_stack(t_stack *a, char **av);
-void				printpile(t_stack *stack);
 void				freepile(t_stack *stack);
 float				compute_disorder(t_stack *stack);
 
@@ -121,6 +120,7 @@ char				**ft_split(char const *s, char c);
 int					ft_error(t_stack *a, t_stack *b, t_stock *stock);
 void				freestock(t_stock *stock);
 void				freeall(t_stack *a, t_stack *b, t_stock *stock);
-int					free_str(char *str, int i);
 
 #endif
+
+//void				printpile(t_stack *stack);
