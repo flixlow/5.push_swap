@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:38:14 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:41:57 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ void				freestock(t_stock *stock);
 void				freeall(t_stack *a, t_stack *b, t_stock *stock);
 
 void				creatstock(t_stack *a, t_stack *b, t_stock *stock);
+
+int					has_duplicates(t_stack *pile);
 
 #endif
 

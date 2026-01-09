@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 14:23:25 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 15:05:32 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:58:59 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,3 @@ void	push_to_b(t_stack *a, t_stack *b, int chunk)
 			ra(a);
 	}
 }
-/*
-chunk sort en gros c'est de trie par chunk(partie) du coup
-on push les 5 plus petit
-apres les 5 plus grand
-jusqu'a qu'on arrive a la fin
-apres dans b on une pile trie par chunk il va reste qu'a trie les chunk
-genre trie les 5 plus petit
-jusqu'a arrive a la fin
-*/

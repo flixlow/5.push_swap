@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 18:06:39 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:40:54 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	check_digits(char **tab, int begin)
 	while (tab[i])
 	{
 		j = 0;
-		if (tab[i][j] == '-')
+		if (tab[i][j] == '-' || tab[i][j] == '+') 
 			j++;
 		while (tab[i][j])
 		{

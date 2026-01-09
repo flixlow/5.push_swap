@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:48:09 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:40:21 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	check_overflow(int content, char *str)
 	char	*new_str;
 
 	new_str = ft_itoa(content);
-	// if (str[0] == '+')
-	// 	str++;
+	if (str[0] == '+')
+		str++;
 	if (ft_strcmp(new_str, str) != 0)
 	{
 		free(new_str);

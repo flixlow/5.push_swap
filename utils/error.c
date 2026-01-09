@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:39:25 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:57:36 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,25 @@ void	freestock(t_stock *stock)
 		free(stock->strategy);
 	else if (stock->theorical_complexity != NULL)
 		free(stock->theorical_complexity);
+}
+
+int	has_duplicates(t_stack *pile)
+{
+	t_list *i;
+	t_list *j;
+
+	i = pile->first;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			if (i->content == j->content)
+				return (1);
+			j = j->next;
+		}
+		i = i->next;
+	}
+	return (0);
 }
 
