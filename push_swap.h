@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:54:01 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:26:32 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_stock
 	char			*strategy;
 	char			*theorical_complexity;
 	double			dissorder;
+	char			**tab;
 }					t_stock;
 
 typedef struct s_stack

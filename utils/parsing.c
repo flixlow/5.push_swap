@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 12:08:17 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:33:19 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,8 @@ int	check_digits(char **tab, int begin)
 int	check_args(char **av, t_stock *stock, int *begin)
 {
 	int		i;
-	char	**tab;
 
 	i = 1;
-	tab = NULL;
 	while (av[i] && (i == 1 || i == 2) && av[i][0] == '-' && av[i][1] == '-')
 	{
 		if (check_strategy(av[i++], stock) == 1)
@@ -110,11 +108,10 @@ int	check_args(char **av, t_stock *stock, int *begin)
 		*begin += 1;
 	}
 	if (av[*begin + 1] == NULL)
-		tab = ft_split(av[*begin], ' ');
-	if (tab != NULL)
+		stock->tab = ft_split(av[*begin], ' ');
+	if (stock->tab != NULL)
 	{
-		__builtin_printf("OKO");
-		if (check_digits(tab, *begin) == 1)
+		if (check_digits(stock->tab, *begin) == 1)
 			return (1);
 	}
 	else if (check_digits(av, *begin) == 1)
