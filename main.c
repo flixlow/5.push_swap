@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:54:07 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:15:17 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int ac, char **av)
 	int		begin;
 
 	begin = 1;
-	if (ac <= 2)
-		return (write(2, "Error\n", 6));
+	if (ac <= 1)
+		return (0);
 	a = createpile();
 	b = createpile();
 	a->stock = &stock;
@@ -32,9 +32,8 @@ int	main(int ac, char **av)
 	if (init_stack(a, &av[begin]) == 1)
 		return (ft_error(a, b, &stock));
 	if (is_sorted(a))
-		return(ft_printf("bon\n"));
+		return(ft_printf("already sorted\n"));
 	algo_choice(&stock, a, b);
-	__builtin_printf("%.2f\n", stock.dissorder * 100);
 	if (stock.bench != NULL)
 		benchmark_mode(&stock);
 	freeall(a, b, &stock);

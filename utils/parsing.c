@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/08 17:29:48 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 12:08:17 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strcpy(char *src)
 		i++;
 	}
 	dest[i] = '\0';
-	while(dest[j])
+	while (dest[j])
 	{
 		src[j] = dest[j];
 		j++;
@@ -74,17 +74,23 @@ int	check_strategy(char *str, t_stock *stock)
 	return (0);
 }
 
-int	check_digits(char *str)
+int	check_digits(char **tab, int begin)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	if (str[i] == '-')
-		i++;
-	while (str[i])
+	i = begin;
+	j = 0;
+	while (tab[i])
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (1);
+		if (tab[i][j] == '-')
+			j++;
+		while (tab[i][j])
+		{
+			if (!(tab[i][j] >= '0' && tab[i][j] <= '9'))
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
@@ -92,20 +98,26 @@ int	check_digits(char *str)
 
 int	check_args(char **av, t_stock *stock, int *begin)
 {
-	int	i;
+	int		i;
+	char	**tab;
 
 	i = 1;
-	while (av[i])
+	tab = NULL;
+	while (av[i] && (i == 1 || i == 2) && av[i][0] == '-' && av[i][1] == '-')
 	{
-		if ((i == 1 || i == 2) && av[i][0] == '-' && av[i][1] == '-')
-		{
-			if (check_strategy(av[i], stock) == 1)
-				return (1);
-			*begin += 1;
-		}
-		else if (check_digits(av[i]) == 1)
+		if (check_strategy(av[i++], stock) == 1)
 			return (1);
-		i++;
+		*begin += 1;
 	}
+	if (av[*begin + 1] == NULL)
+		tab = ft_split(av[*begin], ' ');
+	if (tab != NULL)
+	{
+		__builtin_printf("OKO");
+		if (check_digits(tab, *begin) == 1)
+			return (1);
+	}
+	else if (check_digits(av, *begin) == 1)
+		return (1);
 	return (0);
 }
