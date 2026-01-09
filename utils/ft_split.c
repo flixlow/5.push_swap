@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:37:32 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/09 12:00:40 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:30:01 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (tab);
 }
-
-// #include <stddef.h>
-// #include <stdlib.h>
-// int main(void)
-// {
-// 	char	**tab;
-// 	int		i = 0;
-
-// 	tab = ft_split("3 2 1 0", ' ');
-	// while (tab[i])
-	// {
-	// 	__builtin_printf("%s\n", tab[i++]);
-	// }
-// 	return (0);
-// }

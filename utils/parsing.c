@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 14:33:19 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 18:06:39 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ int	check_strategy(char *str, t_stock *stock)
 	int	i;
 
 	i = 2;
-	if (ft_strcmp(str, "--simple") == 0)
+	if (ft_strcmp(str, "--simple") == 0 && stock->strategy == NULL)
 		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--medium") == 0)
+	else if (ft_strcmp(str, "--medium") == 0 && stock->strategy == NULL)
 		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--complex") == 0)
+	else if (ft_strcmp(str, "--complex") == 0 && stock->strategy == NULL)
 		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--adaptive") == 0)
+	else if (ft_strcmp(str, "--adaptive") == 0 && stock->strategy == NULL)
 		stock->strategy = ft_strcpy(&str[2]);
 	else if (ft_strcmp(str, "--bench") == 0)
 		stock->bench = ft_strcpy(&str[2]);
@@ -80,9 +80,9 @@ int	check_digits(char **tab, int begin)
 	int	j;
 
 	i = begin;
-	j = 0;
 	while (tab[i])
 	{
+		j = 0;
 		if (tab[i][j] == '-')
 			j++;
 		while (tab[i][j])
@@ -98,7 +98,7 @@ int	check_digits(char **tab, int begin)
 
 int	check_args(char **av, t_stock *stock, int *begin)
 {
-	int		i;
+	int	i;
 
 	i = 1;
 	while (av[i] && (i == 1 || i == 2) && av[i][0] == '-' && av[i][1] == '-')

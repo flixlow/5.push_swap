@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:15:41 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 18:03:37 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,9 @@ int	main(int ac, char **av)
 	ft_memset(&stock, 0, sizeof(t_stock));
 	if (check_args(av, &stock, &begin) == 1)
 		return (ft_error(a, b, &stock));
-	if (stock.tab != NULL)
-	{
-		if (init_stack(a, stock.tab) == 1)
-			return (ft_error(a, b, &stock));
-	}
-	else if (stock.tab == NULL)
-	{
-		if (init_stack(a, &av[begin]) == 1)
-			return (ft_error(a, b, &stock));
-	}
+	if ((stock.tab != NULL && init_stack(a, stock.tab) == 1)
+	|| (stock.tab == NULL && init_stack(a, &av[begin]) == 1))
+		return (ft_error(a, b, &stock));
 	if (is_sorted(a))
 		return (ft_printf("already sorted\n"));
 	algo_choice(&stock, a, b);

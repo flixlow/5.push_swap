@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:07:35 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:38:14 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ int					ft_error(t_stack *a, t_stack *b, t_stock *stock);
 void				freestock(t_stock *stock);
 void				freeall(t_stack *a, t_stack *b, t_stock *stock);
 
+void				creatstock(t_stack *a, t_stack *b, t_stock *stock);
+
 #endif
 
-//void				printpile(t_stack *stack);
+// void				printpile(t_stack *stack);

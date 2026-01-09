@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:16:02 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:48:09 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	check_overflow(int content, char *str)
 	char	*new_str;
 
 	new_str = ft_itoa(content);
+	// if (str[0] == '+')
+	// 	str++;
 	if (ft_strcmp(new_str, str) != 0)
 	{
 		free(new_str);
@@ -111,17 +113,3 @@ int	init_stack(t_stack *a, char **av)
 	return (0);
 }
 
-// void	printpile(t_stack *stack)
-// {
-// 	t_list	*element;
-
-// 	if (!stack)
-// 		return ;
-// 	element = stack->first;
-// 	while (element)
-// 	{
-// 		ft_printf("%d", element->content);
-// 		ft_printf("\n");
-// 		element = element->next;
-// 	}
-// }
