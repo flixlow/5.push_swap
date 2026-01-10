@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:07:59 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:11:36 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,22 @@ int	has_duplicates(t_stack *pile)
 			j = j->next;
 		}
 		i = i->next;
+	}
+	return (0);
+}
+
+int	ft_sqrt(int nb)
+{
+	int	i;
+
+	i = 0;
+	if (nb <= 0)
+		return (0);
+	while (i < nb)
+	{
+		if ((i * i) >= nb)
+			return (i);
+		i++;
 	}
 	return (0);
 }

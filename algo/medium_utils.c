@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 14:23:25 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 19:58:59 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:21:02 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	is_sorted(t_stack *pile_a)
 
 int	find_max_index(t_stack *b)
 {
-	int			max;
-	t_list		*tmp;
+	int		max;
+	t_list	*tmp;
 
 	tmp = b->first;
 	max = -1;
@@ -46,8 +46,8 @@ int	find_max_index(t_stack *b)
 
 int	find_pos_index(t_stack *b, int index)
 {
-	int			pos;
-	t_list		*tmp;
+	int		pos;
+	t_list	*tmp;
 
 	tmp = b->first;
 	pos = 0;
@@ -63,16 +63,18 @@ int	find_pos_index(t_stack *b, int index)
 
 void	push_chunk(t_stack *a, t_stack *b)
 {
-	int		max;
-	int		pos;
+	int	max;
+	int	pos;
+	int	size;
 
 	while (b->first)
 	{
+		size = lstlen(b);
 		max = find_max_index(b);
 		pos = find_pos_index(b, max);
 		if (pos == 0)
 			pa(a, b);
-		else if (pos <= lstlen(b) / 2)
+		else if (pos <= size / 2)
 			rb(b);
 		else
 			rrb(b);
@@ -81,23 +83,19 @@ void	push_chunk(t_stack *a, t_stack *b)
 
 void	push_to_b(t_stack *a, t_stack *b, int chunk)
 {
-	int		i;
-	int		size;
+	int	pushed;
+	int	limit;
 
-	i = 0;
-	size = lstlen(a);
+	pushed = 0;
+	limit = chunk;
 	while (a->first)
 	{
-		if (a->first->index <= i)
+		if (a->first->index < limit)
 		{
 			pb(b, a);
-			rb(b);
-			i++;
-		}
-		else if (a->first->index <= i + chunk)
-		{
-			pb(b, a);
-			i++;
+			pushed++;
+			if (pushed == limit)
+				limit += chunk;
 		}
 		else
 			ra(a);

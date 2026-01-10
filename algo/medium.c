@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 19:36:51 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 15:04:53 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:12:01 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,7 @@ void	chunk_sort(t_stack *pile_a, t_stack *pile_b)
 	sort_arr(arr, size);
 	index_arr(pile_a->first, arr, size);
 	free(arr);
-	if (size <= 100)
-		chunk = 15;
-	else
-		chunk = 30;
+	chunk = ft_sqrt(size);
 	push_to_b(pile_a, pile_b, chunk);
 	push_chunk(pile_a, pile_b);
 }
