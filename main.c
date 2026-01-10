@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 19:58:20 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 16:10:16 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 		return (ft_error(a, b, &stock));
 	if ((stock.tab != NULL && init_stack(a, stock.tab) == 1)
 		|| (stock.tab == NULL && init_stack(a, &av[begin]) == 1)
-		|| has_duplicates(a))
+		|| has_duplicates(a) || lstlen(a) < 2)
 		return (ft_error(a, b, &stock));
 	if (is_sorted(a))
 		return (ft_printf("already sorted\n"));

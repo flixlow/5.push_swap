@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 19:40:54 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 16:49:29 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,18 @@ int	check_strategy(char *str, t_stock *stock)
 	return (0);
 }
 
-int	check_digits(char **tab, int begin)
+int	check_digits(char **tab, int begin, t_stock *stock)
 {
 	int	i;
 	int	j;
 
 	i = begin;
+	if (stock->bench)
+		i = 0;
 	while (tab[i])
 	{
 		j = 0;
-		if (tab[i][j] == '-' || tab[i][j] == '+') 
+		if (tab[i][j] == '-' || tab[i][j] == '+')
 			j++;
 		while (tab[i][j])
 		{
@@ -107,14 +109,14 @@ int	check_args(char **av, t_stock *stock, int *begin)
 			return (1);
 		*begin += 1;
 	}
-	if (av[*begin + 1] == NULL)
+	if (av[*begin + 1] == NULL && av[*begin][0] && av[*begin][1])
 		stock->tab = ft_split(av[*begin], ' ');
 	if (stock->tab != NULL)
 	{
-		if (check_digits(stock->tab, *begin) == 1)
+		if (check_digits(stock->tab, *begin, stock) == 1)
 			return (1);
 	}
-	else if (check_digits(av, *begin) == 1)
+	else if (check_digits(av, *begin, stock) == 1)
 		return (1);
 	return (0);
 }
