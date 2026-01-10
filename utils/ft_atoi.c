@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 15:42:36 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:47:09 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:07:51 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	ft_atoi(const char *str)
 	result = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if(str[i] == '-')
-		sign *= (-1);
+		if (str[i] == '-')
+			sign *= (-1);
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')

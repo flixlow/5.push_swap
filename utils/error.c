@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 19:57:36 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:07:59 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	freestock(t_stock *stock)
 
 int	has_duplicates(t_stack *pile)
 {
-	t_list *i;
-	t_list *j;
+	t_list	*i;
+	t_list	*j;
 
 	i = pile->first;
 	while (i)
@@ -57,4 +57,3 @@ int	has_duplicates(t_stack *pile)
 	}
 	return (0);
 }
-
