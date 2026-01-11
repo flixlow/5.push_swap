@@ -6,11 +6,11 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:08:05 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/11 15:43:46 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack	*createpile(void)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark_mode.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:42:52 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/08 18:04:38 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/11 15:43:34 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

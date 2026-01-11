@@ -6,11 +6,11 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 15:42:36 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:07:51 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/11 15:43:29 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi(const char *str)
 {
