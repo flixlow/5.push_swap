@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/09 17:38:14 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/10 18:02:14 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_stock
 	char			*theorical_complexity;
 	double			dissorder;
 	char			**tab;
+	int				split;
 }					t_stock;
 
 typedef struct s_stack
@@ -122,6 +123,8 @@ void				freestock(t_stock *stock);
 void				freeall(t_stack *a, t_stack *b, t_stock *stock);
 
 void				creatstock(t_stack *a, t_stack *b, t_stock *stock);
+
+int					has_duplicates(t_stack *pile);
 
 #endif
 
