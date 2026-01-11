@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algo_choice.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 11:58:03 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/09 17:18:20 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/11 17:17:22 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	algo_choice(t_stock *stock, t_stack *a, t_stack *b)
 {

@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 19:36:51 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:12:01 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/11 17:18:22 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	lstlen(t_stack *pile)
 {
-	int			n;
-	t_list		*tmp;
+	int		n;
+	t_list	*tmp;
 
 	tmp = pile->first;
 	n = 0;
@@ -29,9 +29,9 @@ int	lstlen(t_stack *pile)
 
 int	*cpy_chunk(t_list *pile, int size)
 {
-	int			*arr;
-	int			i;
-	t_list		*tmp;
+	int		*arr;
+	int		i;
+	t_list	*tmp;
 
 	i = 0;
 	tmp = pile;
@@ -49,9 +49,9 @@ int	*cpy_chunk(t_list *pile, int size)
 
 void	sort_arr(int *arr, int size)
 {
-	int		i;
-	int		j;
-	int		tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 0;
 	while (i < size)
@@ -73,8 +73,8 @@ void	sort_arr(int *arr, int size)
 
 void	index_arr(t_list *pile, int *arr, int size)
 {
-	t_list		*tmp;
-	int			i;
+	t_list	*tmp;
+	int		i;
 
 	tmp = pile;
 	while (tmp)
@@ -101,11 +101,16 @@ void	chunk_sort(t_stack *pile_a, t_stack *pile_b)
 
 	pile_a->stock->theorical_complexity = "O(n√n)";
 	size = lstlen(pile_a);
-	arr = cpy_chunk(pile_a->first, size);
-	sort_arr(arr, size);
-	index_arr(pile_a->first, arr, size);
-	free(arr);
-	chunk = ft_sqrt(size);
-	push_to_b(pile_a, pile_b, chunk);
-	push_chunk(pile_a, pile_b);
+	if (size < 3)
+		sa(pile_a);
+	else
+	{
+		arr = cpy_chunk(pile_a->first, size);
+		sort_arr(arr, size);
+		index_arr(pile_a->first, arr, size);
+		free(arr);
+		chunk = ft_sqrt(size);
+		push_to_b(pile_a, pile_b, chunk);
+		push_chunk(pile_a, pile_b);
+	}
 }
