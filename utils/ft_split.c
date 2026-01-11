@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:37:32 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/09 17:30:01 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/11 15:32:17 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static char	**ft_count_word(char const *s, char c, int *a, int *b)
 	int		i;
 	int		count;
 	char	**tab;
+	char	**tab1;
 
 	i = 0;
 	*a = 0;
@@ -53,7 +54,9 @@ static char	**ft_count_word(char const *s, char c, int *a, int *b)
 	if (tab == 0)
 		return (0);
 	tab[count] = 0;
-	return (tab);
+	tab1 = tab;
+	free(tab);
+	return (tab1);
 }
 
 static char	**ft_free(char **tab)

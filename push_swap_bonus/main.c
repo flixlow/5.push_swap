@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 02:26:25 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/11 15:32:03 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	main(int ac, char **av)
 		tab = ft_split(av[1], ' ');
 	else
 		tab = av + 1;
-	if (!tab[1] || check_digits(tab) || init_pile(&pile_a, tab) || has_duplicates(pile_a))
+	if (!tab[1] || check_digits(tab) || init_pile(&pile_a, tab)
+		|| has_duplicates(pile_a))
 		return (ft_error(&pile_a, &pile_b));
 	if (is_sorted(pile_a))
 		return (write(1, "already sorted\n", 15));
