@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 14:55:35 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/11 02:36:24 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,34 +54,12 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (s2[i] - s1[i]);
 }
 
-int	check_strategy(char *str, t_stock *stock)
-{
-	int	i;
-
-	i = 2;
-	if (ft_strcmp(str, "--simple") == 0 && stock->strategy == NULL)
-		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--medium") == 0 && stock->strategy == NULL)
-		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--complex") == 0 && stock->strategy == NULL)
-		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--adaptive") == 0 && stock->strategy == NULL)
-		stock->strategy = ft_strcpy(&str[2]);
-	else if (ft_strcmp(str, "--bench") == 0 && stock->bench == NULL)
-		stock->bench = ft_strcpy(&str[2]);
-	else
-		return (1);
-	return (0);
-}
-
-int	check_digits(char **tab, int begin, t_stock *stock)
+int	check_digits(char **tab)
 {
 	int	i;
 	int	j;
 
-	i = begin;
-	if (stock->split == 1)
-		i = 0;
+	i = 0;
 	while (tab[i])
 	{
 		j = 0;
@@ -95,31 +73,5 @@ int	check_digits(char **tab, int begin, t_stock *stock)
 		}
 		i++;
 	}
-	return (0);
-}
-
-int	check_args(char **av, t_stock *stock, int *begin)
-{
-	int	i;
-
-	i = 1;
-	while (av[i] && (i == 1 || i == 2) && av[i][0] == '-' && av[i][1] == '-')
-	{
-		if (check_strategy(av[i++], stock) == 1)
-			return (1);
-		*begin += 1;
-	}
-	if (av[*begin + 1] == NULL && av[*begin][0] && av[*begin][1])
-	{
-		stock->tab = ft_split(av[*begin], ' ');
-		stock->split = 1;
-	}
-	if (stock->tab != NULL)
-	{
-		if (check_digits(stock->tab, *begin, stock) == 1)
-			return (1);
-	}
-	else if (check_digits(av, *begin, stock) == 1)
-		return (1);
 	return (0);
 }

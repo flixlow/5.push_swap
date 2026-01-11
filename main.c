@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:22:56 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/11 14:44:14 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 		return (ft_error(a, b, &stock));
 	if (is_sorted(a))
 		return (ft_printf("already sorted\n"));
-	algo_choice(&stock, a, b);
+	chunk_sort(a, b);
 	if (stock.bench != NULL)
 		benchmark_mode(&stock);
 	freeall(a, b, &stock);
