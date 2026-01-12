@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:42:52 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/12 17:07:25 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:06:36 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	put_str_fd(char *str1, char *str2)
 	int	i;
 
 	i = 0;
-	while(str1[i])
+	while (str1[i])
 		write(2, &str1[i++], 1);
 	i = 0;
 	while (str2[i])
@@ -45,14 +45,14 @@ void	put_nbr_fd(char	*str, int nbr)
 	{
 		while (str[i])
 			write(2, &str[i++], 1);
-	} 
+	}
 	if ((nbr / 10) > 0)
 		put_nbr_fd(0, nbr / 10);
 	c = nbr % 10 + '0';
 	write(2, &c, 1);
 }
 
-void	put_float(char *str, float nbr)
+int	put_float(char *str, float nbr)
 {
 	int	i;
 	int	n;
@@ -63,6 +63,10 @@ void	put_float(char *str, float nbr)
 		while (str[i])
 			write(2, &str[i++], 1);
 	}
+	if (nbr == 0)
+		return (write(2, "00.00", 5));
+	if (nbr == 100)
+		return (write(2, "100.00", 6));
 	n = (int)nbr % 100;
 	put_nbr_fd(NULL, n);
 	write(2, ".", 1);
@@ -70,6 +74,7 @@ void	put_float(char *str, float nbr)
 	if (n < 10)
 		write(2, "0", 1);
 	put_nbr_fd(NULL, (int)nbr);
+	return (0);
 }
 
 void	benchmark_mode(t_stock *stock)

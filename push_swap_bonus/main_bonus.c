@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 17:37:52 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:09:50 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int ac, char **av)
 		operation = get_next_line(0);
 	}
 	if (is_sorted(pile_a) && pile_b == NULL)
-		return (freeall(&pile_a, &pile_b, "OK\n"));
-	return (freeall(&pile_a, &pile_b, "KO\n"));
+		freeall(&pile_a, &pile_b, "OK\n");
+	else
+		return (freeall(&pile_a, &pile_b, "KO\n"));
+	return (0);
 }

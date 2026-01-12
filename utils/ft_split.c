@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:37:32 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/12 16:41:53 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:07:25 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static char	**ft_count_word(char const *s, char c, int *a, int *b)
 	int		count;
 	char	**tab;
 
-
 	i = 0;
 	*a = 0;
 	*b = 0;
@@ -54,7 +53,6 @@ static char	**ft_count_word(char const *s, char c, int *a, int *b)
 	if (tab == 0)
 		return (0);
 	tab[count] = 0;
-
 	return (tab);
 }
 

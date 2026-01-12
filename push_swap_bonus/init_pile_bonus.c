@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 17:37:58 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:08:53 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,18 +116,12 @@ int	init(char **av, t_list **pile_a, t_list **pile_b)
 		tab = ft_split(av[1], ' ');
 	else
 		tab = av + 1;
-	if (!(tab)[1] || check_digits(tab) || init_pile(pile_a, tab) || 
+	if (!(tab)[1] || check_digits(tab) || init_pile(pile_a, tab) ||
 		has_duplicates(*pile_a))
 	{
 		if (!(tab == av + 1))
 			ft_free_tab(tab);
 		return (freeall(pile_a, pile_b, "Error\n"));
-	}
-	if (is_sorted(*pile_a))
-	{
-		if (!(tab == av + 1))
-			ft_free_tab(tab);
-		return (freeall(pile_a, pile_b, "Already sorted\n"));
 	}
 	if (!(tab == av + 1))
 		ft_free_tab(tab);

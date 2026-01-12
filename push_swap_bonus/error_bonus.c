@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 17:38:04 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:59:01 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	freeall(t_list **pile_a, t_list **pile_b, char *oko)
 	i = 0;
 	freepile(pile_a);
 	freepile(pile_b);
-	while (oko[i])
+	while (oko && oko[i])
 		write(1, &oko[i++], 1);
 	return (1);
 }

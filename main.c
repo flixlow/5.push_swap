@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 16:45:38 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:09:11 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	sorted_free(t_stack *a, t_stack *b)
 {
 	freepile(a);
 	freepile(b);
-	return (ft_printf("already sorted\n"));
+	return (0);
 }
 
 int	init(t_stack *a, t_stack *b, char **av)
 {
-	int begin;
+	int	begin;
 
 	begin = 1;
 	ft_memset(a->stock, 0, sizeof(t_stock));
