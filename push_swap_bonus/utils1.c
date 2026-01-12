@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 10:16:55 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/08 11:31:56 by flauweri         ###   ########.fr       */
+/*   Created: 2026/01/01 15:42:36 by mobenhab          #+#    #+#             */
+/*   Updated: 2026/01/12 10:46:07 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s2[i] - s1[i]);
+		i++;
+	}
+	return (s2[i] - s1[i]);
+}
+
+void	*ft_bzero(char	*line, char *buf)
+{
+	int	i;
+
+	i = 0;
+	if (line != NULL)
+		free(line);
+	while (i < BUFFER_SIZE)
+		buf[i++] = 0;
+	return (NULL);
+}
 
 static int	ft_count_div(unsigned int m)
 {
@@ -51,4 +77,24 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		tab[0] = '-';
 	return (tab);
+}
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= (-1);
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+		result = result * 10 + (str[i++] - '0');
+	return (result * sign);
 }

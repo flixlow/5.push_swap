@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:37:32 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/11 02:14:29 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:46:47 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+char	*ft_strcpy(char *src)
+{
+	char	*dest;
+	int		i;
+	int		j;
+
+	j = 0;
+	i = 0;
+	while (src[i])
+		i++;
+	dest = malloc(sizeof(char) * (i + 1));
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	while (dest[j])
+	{
+		src[j] = dest[j];
+		j++;
+	}
+	src[j] = '\0';
+	free(dest);
+	return (src);
+}
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

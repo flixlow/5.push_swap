@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   revrotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/25 14:40:11 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 00:47:24 by flauweri         ###   ########.fr       */
+/*   Created: 2025/12/27 11:40:16 by mobenhab          #+#    #+#             */
+/*   Updated: 2026/01/12 11:20:48 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	rotate(t_list **pile)
+void	revrotate(t_list **pile)
 {
-	t_list	*first;
 	t_list	*last;
+	t_list	*before_last;
 
 	if (*pile == NULL || (*pile)->next == NULL)
 		return ;
-	first = *pile;
 	last = *pile;
+	before_last = NULL;
 	while (last->next)
+	{
+		before_last = last;
 		last = last->next;
-	*pile = (*pile)->next;
-	last->next = first;
-	first->next = NULL;
+	}
+	before_last->next = NULL;
+	last->next = *pile;
+	*pile = last;
 }
 
-void	rr(t_list **pile_a, t_list **pile_b)
+void	rrr(t_list **pile_a, t_list **pile_b)
 {
-	rotate(pile_a);
-	rotate(pile_b);
+	revrotate(pile_a);
+	revrotate(pile_b);
 }

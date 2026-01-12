@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 02:36:54 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:36:55 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	freepile(t_list **pile)
 {
@@ -29,16 +29,23 @@ void	freepile(t_list **pile)
 	free(*pile);
 }
 
-int	ft_error(t_list **pile_a, t_list **pile_b)
+int	ft_error(t_list **pile_a, t_list **pile_b, char *str)
 {
+	int	i;
+
+	i = 0;
 	freepile(pile_a);
 	freepile(pile_b);
-	write(2, "Error\n", 6);
+	while (str[i])
+		i++;
+	write(2, &str, i);
 	return (0);
 }
 
-void	freeall(t_list **pile_a, t_list **pile_b)
+void	freeall(t_list **pile_a, t_list **pile_b, char ***tab, char **av)
 {
+	if (!(*tab == av + 1))
+		ft_free_tab(*tab);
 	freepile(pile_a);
 	freepile(pile_b);
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 10:46:27 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/11 01:30:40 by flauweri         ###   ########.fr       */
+/*   Created: 2025/12/25 14:39:47 by mobenhab          #+#    #+#             */
+/*   Updated: 2026/01/12 11:20:51 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_bzero(char	*line, char *buf)
+void	push(t_list **receiver, t_list **sender)
 {
-	int	i;
+	t_list	*pushed;
 
-	i = 0;
-	if (line != NULL)
-		free(line);
-	while (i < BUFFER_SIZE)
-		buf[i++] = 0;
-	return (NULL);
+	if (*sender == NULL)
+		return ;
+	pushed = *sender;
+	*sender = (*sender)->next;
+	pushed->next = *receiver;
+	*receiver = pushed;
 }

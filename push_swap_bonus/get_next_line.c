@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 10:46:27 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/11 01:30:36 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:44:03 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,3 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
-/*# include <fcntl.h>
-int	main(int ac, char **av)
-{
-	(void)ac;
-	int fd = open(av[1], O_RDONLY);
-	__builtin_printf("%s", get_next_line(fd));
-	close (fd);
-	return (0);
-}*/

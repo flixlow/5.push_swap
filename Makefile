@@ -12,12 +12,14 @@ OP := push.c  revrotate.c  rotate.c  swap.c
 
 UTILS := parsing.c ft_atoi.c  stack_management.c benchmark_mode.c ft_split.c ft_itoa.c error.c
 
-
 SRC = $(addprefix ft_printf/, $(PRINTF))\
 			$(addprefix algo/, $(SORT))\
 			$(addprefix operations/, $(OP))\
 			$(addprefix utils/, $(UTILS))\
 			main.c 
+
+SRC_BONUS = $(addprefix)
+
 OBJ = $(SRC:.c=.o)
 
 DEP = $(OBJ:.o=.d)
@@ -34,10 +36,17 @@ $(NAME): $(OBJ)
 
 clean:
 		rm -f $(OBJ) $(DEP)
+		make -C ./push_swap_bonus clean
 
 fclean: clean
 		rm -f $(NAME)
+		rm -f checker
+		make -C ./push_swap_bonus fclean
 
 re: fclean all
+
+bonus:
+	make -C ./push_swap_bonus
+	mv ./push_swap_bonus/checker .
 
 -include $(DEP)
