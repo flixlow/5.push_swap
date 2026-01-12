@@ -109,7 +109,7 @@ memset for struct, git help, structuring the README.
 
 ### [@mobenhab](https://www.github.com/hicham-bnh)
 
-#### Precedent project imported:
+#### Precedent projects imported:
 
 -	ft_atoi
 -	ft_strcpy
@@ -126,13 +126,13 @@ memset for struct, git help, structuring the README.
 
 ### [@flauweri](https://www.github.com/flixlow)
 
-#### Precedent project imported:
+#### Precedent projects imported:
 
 -	ft_printf
 -	ft_itoa
 -	ft_split
 
-#### Feattures contribution:
+#### Features contribution:
 
 -	Simple_sort
 -	algo_choice

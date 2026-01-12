@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 15:43:46 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:24:58 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*createpile(void)
+t_stack *createpile(void)
 {
-	t_stack	*stack;
+	t_stack *stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
@@ -23,13 +23,13 @@ t_stack	*createpile(void)
 	return (stack);
 }
 
-void	freepile(t_stack *stack)
+void freepile(t_stack *stack)
 {
-	t_list	*current;
-	t_list	*next;
+	t_list *current;
+	t_list *next;
 
 	if (!stack)
-		return ;
+		return;
 	current = stack->first;
 	while (current)
 	{
@@ -40,12 +40,12 @@ void	freepile(t_stack *stack)
 	free(stack);
 }
 
-float	compute_disorder(t_stack *stack)
+float compute_disorder(t_stack *stack)
 {
-	t_list	*i;
-	t_list	*j;
-	int		mistakes;
-	int		total_pairs;
+	t_list *i;
+	t_list *j;
+	int mistakes;
+	int total_pairs;
 
 	mistakes = 0;
 	total_pairs = 0;
@@ -58,7 +58,7 @@ float	compute_disorder(t_stack *stack)
 		while (j != NULL)
 		{
 			total_pairs++;
-			if (i->content < j->content)
+			if (i->content > j->content)
 				mistakes++;
 			j = j->next;
 		}
@@ -69,9 +69,9 @@ float	compute_disorder(t_stack *stack)
 	return ((float)mistakes / (float)total_pairs);
 }
 
-int	check_overflow(int content, char *str)
+int check_overflow(int content, char *str)
 {
-	char	*new_str;
+	char *new_str;
 
 	new_str = ft_itoa(content);
 	if (str[0] == '+')
@@ -85,11 +85,11 @@ int	check_overflow(int content, char *str)
 	return (0);
 }
 
-int	init_stack(t_stack *a, char **av)
+int init_stack(t_stack *a, char **av)
 {
-	t_list	*new;
-	t_list	*last;
-	size_t	i;
+	t_list *new;
+	t_list *last;
+	size_t i;
 
 	i = 0;
 	last = NULL;
