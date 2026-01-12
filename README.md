@@ -139,4 +139,5 @@ memset for struct, git help, structuring the README.
 -	adaptive
 -	Benchmark mode
 -	parsing
+-	checker
 -	error detection

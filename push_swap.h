@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 15:58:52 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:42:11 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void				*ft_memset(void *s, int c, size_t n);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
+char				**ft_free(char **tab);
 
 int					ft_error(t_stack *a, t_stack *b, t_stock *stock);
 void				freestock(t_stock *stock);

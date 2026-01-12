@@ -1,5 +1,7 @@
 NAME = push_swap
 
+NAME_BONUS = checker
+
 CC = cc
 
 CFLAGS = -Wall -Werror -Wextra -I. -g3
@@ -18,13 +20,26 @@ SRC = $(addprefix ft_printf/, $(PRINTF))\
 			$(addprefix utils/, $(UTILS))\
 			main.c 
 
-SRC_BONUS = $(addprefix)
+BONUS = main_bonus.c \
+		utils1_bonus.c \
+		utils2_bonus.c \
+		init_pile_bonus.c \
+		error_bonus.c \
+		get_next_line_bonus.c \
+		push_bonus.c \
+		revrotate_bonus.c \
+		rotate_bonus.c \
+		swap_bonus.c
+
+SRC_BONUS = $(addprefix push_swap_bonus/, $(BONUS))
 
 OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 DEP = $(OBJ:.o=.d)
+DEP = $(OBJ_BONUS:.o=.d)
 
-.PHONY: all re fclean clean
+.PHONY: all re fclean clean bonus
 
 all: $(NAME)
 
@@ -36,17 +51,17 @@ $(NAME): $(OBJ)
 
 clean:
 		rm -f $(OBJ) $(DEP)
-		make -C ./push_swap_bonus clean
+		rm -f $(OBJ_BONUS) $(DEP_BONUS)
 
 fclean: clean
 		rm -f $(NAME)
-		rm -f checker
-		make -C ./push_swap_bonus fclean
+		rm -f $(NAME_BONUS)
 
 re: fclean all
 
-bonus:
-	make -C ./push_swap_bonus
-	mv ./push_swap_bonus/checker .
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_BONUS)
+		$(CC) $(CFLAGS) $^ -o $@
 
 -include $(DEP)

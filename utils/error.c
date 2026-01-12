@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:11:36 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:37:16 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_error(t_stack *a, t_stack *b, t_stock *stock)
 	freepile(b);
 	(void)stock;
 	write(2, "Error\n", 6);
-	return (0);
+	return (1);
 }
 
 void	freeall(t_stack *a, t_stack *b, t_stock *stock)

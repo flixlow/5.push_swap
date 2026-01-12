@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark_mode.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 10:42:52 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/11 15:43:34 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:07:25 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,57 +22,72 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void	put_str_fd(int title, char *str)
+void	put_str_fd(char *str1, char *str2)
 {
 	int	i;
 
 	i = 0;
-	(void)title;
-	while (str[i])
-		write(2, &str[i++], 1);
+	while(str1[i])
+		write(2, &str1[i++], 1);
+	i = 0;
+	while (str2[i])
+		write(2, &str2[i++], 1);
 }
 
-void	put_nbr_fd(int title, int nbr)
+void	put_nbr_fd(char	*str, int nbr)
 {
 	int	c;
+	int	i;
 
 	c = 0;
-	(void)title;
+	i = 0;
+	if (str != NULL)
+	{
+		while (str[i])
+			write(2, &str[i++], 1);
+	} 
 	if ((nbr / 10) > 0)
 		put_nbr_fd(0, nbr / 10);
 	c = nbr % 10 + '0';
 	write(2, &c, 1);
 }
 
-void	put_float(int title, float nbr)
+void	put_float(char *str, float nbr)
 {
+	int	i;
 	int	n;
 
-	(void)title;
+	i = 0;
+	if (str)
+	{
+		while (str[i])
+			write(2, &str[i++], 1);
+	}
 	n = (int)nbr % 100;
-	put_nbr_fd(0, n);
+	put_nbr_fd(NULL, n);
 	write(2, ".", 1);
 	nbr = (nbr - n) * 100;
 	if (n < 10)
 		write(2, "0", 1);
-	put_nbr_fd(0, (int)nbr);
+	put_nbr_fd(NULL, (int)nbr);
 }
 
 void	benchmark_mode(t_stock *stock)
 {
-	put_float(write(2, "[bench] disorder: ", 19), (stock->dissorder * 100));
-	put_str_fd(write(2, "%\n[bench] strategy: ", 21), stock->strategy);
-	put_str_fd(write(2, " / ", 3), stock->theorical_complexity);
-	put_nbr_fd(write(2, "\n[bench] total_ops: ", 20), stock->total);
-	put_nbr_fd(write(2, "\n[bench] sa: ", 13), stock->swap_a);
-	put_nbr_fd(write(2, " sb: ", 5), stock->swap_b);
-	put_nbr_fd(write(2, " ss: ", 5), stock->swap_ab);
-	put_nbr_fd(write(2, " pa: ", 5), stock->push_a);
-	put_nbr_fd(write(2, " pb: ", 5), stock->push_b);
-	put_nbr_fd(write(2, "\n[bench] ra: ", 9), stock->rotate_a);
-	put_nbr_fd(write(2, " rb: ", 5), stock->rotate_b);
-	put_nbr_fd(write(2, " rr: ", 5), stock->rotate_ab);
-	put_nbr_fd(write(2, " rra: ", 6), stock->reverse_rotate_a);
-	put_nbr_fd(write(2, " rrb: ", 6), stock->reverse_rotate_b);
-	put_nbr_fd(write(2, " rrr: ", 6), stock->reverse_rotate_ab);
+	put_float("[bench] disorder: ", (stock->dissorder * 100));
+	put_str_fd("%\n[bench] strategy: ", stock->strategy);
+	put_str_fd(" / ", stock->theorical_complexity);
+	put_nbr_fd("\n[bench] total_ops: ", stock->total);
+	put_nbr_fd("\n[bench] sa: ", stock->swap_a);
+	put_nbr_fd(" sb: ", stock->swap_b);
+	put_nbr_fd(" ss: ", stock->swap_ab);
+	put_nbr_fd(" pa: ", stock->push_a);
+	put_nbr_fd(" pb: ", stock->push_b);
+	put_nbr_fd("\n[bench] ra: ", stock->rotate_a);
+	put_nbr_fd(" rb: ", stock->rotate_b);
+	put_nbr_fd(" rr: ", stock->rotate_ab);
+	put_nbr_fd(" rra: ", stock->reverse_rotate_a);
+	put_nbr_fd(" rrb: ", stock->reverse_rotate_b);
+	put_nbr_fd(" rrr: ", stock->reverse_rotate_ab);
+	write(2, "\n", 1);
 }

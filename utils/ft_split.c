@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:37:32 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/11 16:04:48 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:41:53 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	**ft_count_word(char const *s, char c, int *a, int *b)
 	return (tab);
 }
 
-static char	**ft_free(char **tab)
+char	**ft_free(char **tab)
 {
 	int	i;
 
