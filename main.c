@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/11 16:02:36 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:47:57 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	main(int ac, char **av)
 	if (is_sorted(a))
 		return (ft_printf("already sorted\n"));
 	algo_choice(&stock, a, b);
-	print_pile(a);
 	if (stock.bench != NULL)
 		benchmark_mode(&stock);
 	freeall(a, b, &stock);

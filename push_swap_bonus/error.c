@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 11:36:55 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:04:56 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	ft_error(t_list **pile_a, t_list **pile_b, char *str)
 	freepile(pile_b);
 	while (str[i])
 		i++;
-	write(2, &str, i);
+	write(2, &str[0], i);
+	write(2, "\n", 1);
 	return (0);
 }
 
