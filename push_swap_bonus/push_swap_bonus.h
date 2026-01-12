@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 18:10:14 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:56:05 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,17 @@ int		freeall(t_list **pile_a, t_list **pile_b, char *oko);
 int		has_duplicates(t_list *pile);
 
 char	*get_next_line(int fd);
-char	*ft_substr(char *line);
 char	*ft_strjoin(char *line, char *buf);
-int		ft_free(char *s1, char *s2);
 char	**ft_free_tab(char **tab);
 int		ft_strlen(char	*str, char c);
 void	ft_memmove(char *buf);
+char	*searching_n(char *line, char *buf, int *i);
 void	*ft_bzero(char	*line, char *buf);
+int		check_overflow(int content, char *str);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	**ft_split(char const *s, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:38:53 by flauweri          #+#    #+#             */
-/*   Updated: 2026/01/06 15:00:24 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:42:53 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-
-/*int main(void)
-{
-    int             count;
-    //void	        *a;
-	char	        c = 'f';
-	char	        *str = "World";
-	int	            n = 42;
-	//unsigned int	n = 4294967295;
-
-	//count = ft_printf("Station %c", c);
-	//count = ft_printf("Hello %s", str);
-	count = ft_printf("Station %c ,Hello %s, Ecole %d", c, str, n);
-	//count = ft_printf("Ecole %d", n);
-	//count = ft_printf("Ecole %i", n);
-	//count = ft_printf("Nombre positif : %u", n);
-	//count = ft_printf("%x", 4294967295);
-	//count = ft_printf("%X", 4294967295);
-	//count = ft_printf("100%% sur le projet %s", str);
-	//count = ft_printf("adress : %p", a);
-	//count += ft_printf("%c", '0');
-	//count += ft_printf(" NULL %s NULL ", (char *)0);
-	//__builtin_printf("%d\n", __builtin_printf(" %p %p ", (void*)0, (void*)0));
-	//ft_printf("%d\n", ft_printf(" %p %p ", (void*)0, (void*)0));
-    //__builtin(printf("%d"))
-    ft_printf("\n%d", count);
-	return (0);
-}*/

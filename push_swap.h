@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 16:42:11 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:50:27 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,11 @@ int					check_strategy(char *arg, t_stock *stock);
 int					check_args(char **av, t_stock *stock, int *begin);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *src);
+int					check_digits(char **tab, int begin, t_stock *stock);
 
 int					check_format(const char *str, va_list argptr);
-int					format_conversion(const char c, va_list argptr);
 int					is_sorted(t_stack *pile_a);
+int					check_overflow(int content, char *str);
 
 int					ft_printf(const char *str, ...);
 int					ft_putchar(char c);
@@ -114,6 +115,9 @@ void				s_write(int *count, int re);
 
 void				benchmark_mode(t_stock *stock);
 void				*ft_memset(void *s, int c, size_t n);
+void				put_str_fd(char *str1, char *str2);
+void				put_nbr_fd(char *str, int nbr);
+int					put_float(char *str, float nbr);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
@@ -123,11 +127,10 @@ int					ft_error(t_stack *a, t_stack *b, t_stock *stock);
 void				freestock(t_stock *stock);
 void				freeall(t_stack *a, t_stack *b, t_stock *stock);
 
-void				creatstock(t_stack *a, t_stack *b, t_stock *stock);
-
+int					sorted_free(t_stack *a, t_stack *b);
 int					has_duplicates(t_stack *pile);
 int					ft_sqrt(int nb);
+size_t				ft_strlcpy(char *dest, const char *src, size_t size);
+int					init(t_stack *a, t_stack *b, char **av);
 
 #endif
-
-// void				printpile(t_stack *stack);

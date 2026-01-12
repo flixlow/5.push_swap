@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:06:47 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 15:06:07 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:41:20 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,25 +81,3 @@ void	radix_sort(t_stack *pile_a, t_stack *pile_b)
 		i++;
 	}
 }
-
-// int	main(void)
-// {
-// 	// création de quelques nœuds
-// t_stack pile_a;
-// t_stack pile_b;
-
-// // Remplir pile_a avec des valeurs
-// push(&pile_a, 5);
-// push(&pile_a, 1);
-// push(&pile_a, 3);
-// push(&pile_a, 2);
-// push(&pile_a, 4);
-
-// printf("Avant tri :\n");
-// lprint_stack(&pile_a);
-
-// radix_sort(&pile_a, &pile_b);
-
-// printf("Après tri :\n");
-// lprint_stack(&pile_a);
-// }
