@@ -6,7 +6,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra -I. -g3
 
-PRINTF := ft_printf.c ft_putchar.c ft_putnbr_base_upper.c ft_putnbr_un.c ft_putvoid.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c s_write.c \
+PRINTF := ft_printf.c ft_putchar.c ft_putnbr_base_upper.c ft_putnbr_un.c ft_putvoid.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c s_write.c
 
 SORT := algo_choice.c adaptive.c complex.c medium.c medium_utils.c simple.c
 
@@ -34,10 +34,12 @@ BONUS = main_bonus.c \
 SRC_BONUS = $(addprefix push_swap_bonus/, $(BONUS))
 
 OBJ = $(SRC:.c=.o)
+
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 DEP = $(OBJ:.o=.d)
-DEP = $(OBJ_BONUS:.o=.d)
+
+DEP_BONUS = $(OBJ_BONUS:.o=.d)
 
 .PHONY: all re fclean clean bonus
 
@@ -64,4 +66,4 @@ bonus: $(NAME_BONUS)
 $(NAME_BONUS): $(OBJ_BONUS)
 		$(CC) $(CFLAGS) $^ -o $@
 
--include $(DEP)
+-include $(DEP) $(DEP_BONUS)
