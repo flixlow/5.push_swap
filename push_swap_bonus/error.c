@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 12:04:56 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:01:54 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,22 @@ void	freepile(t_list **pile)
 	free(*pile);
 }
 
-int	ft_error(t_list **pile_a, t_list **pile_b, char *str)
+int	ft_error(t_list **pile_a, t_list **pile_b, char **op)
 {
-	int	i;
-
-	i = 0;
 	freepile(pile_a);
 	freepile(pile_b);
-	while (str[i])
-		i++;
-	write(2, &str[0], i);
-	write(2, "\n", 1);
+	if (*op)
+		free(*op);
+	write(2, "Error\n", 6);
 	return (0);
 }
 
-void	freeall(t_list **pile_a, t_list **pile_b, char ***tab, char **av)
+int	freeall(t_list **pile_a, t_list **pile_b, char *oko)
 {
-	if (!(*tab == av + 1))
-		ft_free_tab(*tab);
 	freepile(pile_a);
 	freepile(pile_b);
+	write(1, &oko[0], 3);
+	return (0);
 }
 
 int	has_duplicates(t_list *pile)

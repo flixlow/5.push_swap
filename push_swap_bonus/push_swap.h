@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 11:37:58 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 13:59:06 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rr(t_list **pile_a, t_list **pile_b);
 void	revrotate(t_list **pile);
 void	rrr(t_list **pile_a, t_list **pile_b);
 
-int		init(int ac, char **av, char ***tab, t_list **pile_a);
+int		init(int ac, char **av, t_list **pile_a);
 int		init_pile(t_list **pile_a, char **tab);
 int		operation_on_pile(char *operation, t_list **pile_a, t_list **pile_b);
 void	freepile(t_list **stack);
@@ -48,8 +48,8 @@ int		check_digits(char **tab);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *src);
 int		is_sorted(t_list *pile);
-int		ft_error(t_list **pile_a, t_list **pile_b, char *str);
-void	freeall(t_list **pile_a, t_list **pile_b, char ***tab, char **av);
+int		ft_error(t_list **pile_a, t_list **pile_b, char **op);
+int		freeall(t_list **pile_a, t_list **pile_b, char *oko);
 int		has_duplicates(t_list *pile);
 
 char	*get_next_line(int fd);

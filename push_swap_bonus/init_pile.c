@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 11:37:44 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 13:58:31 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,20 @@ int	operation_on_pile(char *operation, t_list **pile_a, t_list **pile_b)
 	return (0);
 }
 
-int	init(int ac, char **av, char ***tab, t_list **pile_a)
+int	init(int ac, char **av, t_list **pile_a)
 {
+	char **tab;
+	
+	tab = NULL;
 	*pile_a = NULL;
 	if (ac <= 1)
 		return (0);
 	if (av[2] == NULL)
-		*tab = ft_split(av[1], ' ');
+		tab = ft_split(av[1], ' ');
 	else
-		*tab = av + 1;
-	if (!(*tab)[1] || check_digits(*tab) || init_pile(pile_a, *tab)
-		|| has_duplicates(*pile_a))
+		tab = av + 1;
+	if (!(tab)[1] || check_digits(tab) || init_pile(pile_a, tab)
+		|| has_duplicates(*pile_a)|| is_sorted(*pile_a))
 		return (1);
 	return (0);
 }
