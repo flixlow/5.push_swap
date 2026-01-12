@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 13:58:31 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 15:59:20 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,49 +77,59 @@ int	init_pile(t_list **pile_a, char **tab)
 	return (0);
 }
 
-int	operation_on_pile(char *operation, t_list **pile_a, t_list **pile_b)
+int	operation_on_pile(char **operation, t_list **pile_a, t_list **pile_b)
 {
-	if (ft_strcmp(operation, "pa\n") == 0)
+	if (ft_strcmp(*operation, "pa\n") == 0)
 		push(pile_a, pile_b);
-	else if (ft_strcmp(operation, "pb\n") == 0)
+	else if (ft_strcmp(*operation, "pb\n") == 0)
 		push(pile_b, pile_a);
-	else if (ft_strcmp(operation, "sa\n") == 0)
+	else if (ft_strcmp(*operation, "sa\n") == 0)
 		swap(pile_a);
-	else if (ft_strcmp(operation, "sb\n") == 0)
+	else if (ft_strcmp(*operation, "sb\n") == 0)
 		swap(pile_b);
-	else if (ft_strcmp(operation, "ss\n") == 0)
+	else if (ft_strcmp(*operation, "ss\n") == 0)
 		ss(pile_a, pile_b);
-	else if (ft_strcmp(operation, "ra\n") == 0)
+	else if (ft_strcmp(*operation, "ra\n") == 0)
 		rotate(pile_a);
-	else if (ft_strcmp(operation, "rb\n") == 0)
+	else if (ft_strcmp(*operation, "rb\n") == 0)
 		rotate(pile_b);
-	else if (ft_strcmp(operation, "rr\n") == 0)
+	else if (ft_strcmp(*operation, "rr\n") == 0)
 		rr(pile_a, pile_b);
-	else if (ft_strcmp(operation, "rra\n") == 0)
+	else if (ft_strcmp(*operation, "rra\n") == 0)
 		revrotate(pile_a);
-	else if (ft_strcmp(operation, "rrb\n") == 0)
+	else if (ft_strcmp(*operation, "rrb\n") == 0)
 		revrotate(pile_b);
-	else if (ft_strcmp(operation, "rrr\n") == 0)
+	else if (ft_strcmp(*operation, "rrr\n") == 0)
 		rrr(pile_a, pile_b);
 	else
-		return (1);
+		return (ft_error(pile_a, pile_b, operation));
 	return (0);
 }
 
-int	init(int ac, char **av, t_list **pile_a)
+int	init(char **av, t_list **pile_a, t_list **pile_b)
 {
-	char **tab;
-	
+	char	**tab;
+
 	tab = NULL;
 	*pile_a = NULL;
-	if (ac <= 1)
-		return (0);
 	if (av[2] == NULL)
 		tab = ft_split(av[1], ' ');
 	else
 		tab = av + 1;
-	if (!(tab)[1] || check_digits(tab) || init_pile(pile_a, tab)
-		|| has_duplicates(*pile_a)|| is_sorted(*pile_a))
-		return (1);
+	if (!(tab)[1] || check_digits(tab) || init_pile(pile_a, tab) || 
+		has_duplicates(*pile_a))
+	{
+		if (!(tab == av + 1))
+			ft_free_tab(tab);
+		return (freeall(pile_a, pile_b, "Error\n"));
+	}
+	if (is_sorted(*pile_a))
+	{
+		if (!(tab == av + 1))
+			ft_free_tab(tab);
+		return (freeall(pile_a, pile_b, "Already sorted\n"));
+	}
+	if (!(tab == av + 1))
+		ft_free_tab(tab);
 	return (0);
 }

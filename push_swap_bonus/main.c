@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 13:50:02 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 15:58:51 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ int	main(int ac, char **av)
 
 	pile_b = NULL;
 	operation = NULL;
-	if (init(ac, av, &pile_a))
-		return (ft_error(&pile_a, &pile_b, &operation));
+	if (ac <= 1)
+		return (0);
+	if (init(av, &pile_a, &pile_b))
+		return (0);
 	operation = get_next_line(0);
 	while (operation)
 	{
-		if (operation_on_pile(operation, &pile_a, &pile_b))
-			return (ft_error(&pile_a, &pile_b, &operation));
+		if (operation_on_pile(&operation, &pile_a, &pile_b))
+			return (0);
 		free(operation);
 		operation = get_next_line(0);
 	}

@@ -6,7 +6,7 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 13:59:06 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 15:59:59 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	rr(t_list **pile_a, t_list **pile_b);
 void	revrotate(t_list **pile);
 void	rrr(t_list **pile_a, t_list **pile_b);
 
-int		init(int ac, char **av, t_list **pile_a);
+int		init(char **av, t_list **pile_a, t_list **pile_b);
 int		init_pile(t_list **pile_a, char **tab);
-int		operation_on_pile(char *operation, t_list **pile_a, t_list **pile_b);
-void	freepile(t_list **stack);
+int		operation_on_pile(char **operation, t_list **pile_a, t_list **pile_b);
+int		freepile(t_list **pile);
 
 int		check_digits(char **tab);
 int		ft_strcmp(const char *s1, const char *s2);

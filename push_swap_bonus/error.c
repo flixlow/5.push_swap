@@ -6,19 +6,19 @@
 /*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 14:01:54 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:01:50 by flauweri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	freepile(t_list **pile)
+int	freepile(t_list **pile)
 {
 	t_list	*current;
 	t_list	*next;
 
 	if (*pile == NULL)
-		return ;
+		return (1);
 	current = (*pile)->next;
 	while (current)
 	{
@@ -27,6 +27,7 @@ void	freepile(t_list **pile)
 		current = next;
 	}
 	free(*pile);
+	return (1);
 }
 
 int	ft_error(t_list **pile_a, t_list **pile_b, char **op)
@@ -36,15 +37,19 @@ int	ft_error(t_list **pile_a, t_list **pile_b, char **op)
 	if (*op)
 		free(*op);
 	write(2, "Error\n", 6);
-	return (0);
+	return (1);
 }
 
 int	freeall(t_list **pile_a, t_list **pile_b, char *oko)
 {
+	int	i;
+
+	i = 0;
 	freepile(pile_a);
 	freepile(pile_b);
-	write(1, &oko[0], 3);
-	return (0);
+	while (oko[i])
+		write(1, &oko[i++], 1);
+	return (1);
 }
 
 int	has_duplicates(t_list *pile)
