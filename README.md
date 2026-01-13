@@ -90,7 +90,7 @@ memset for struct, git help, structuring the README.
 
 2. Medium Algorithm – O(n√n): Chunk-Based Sorting
 
-	The stack is divided into chunks of size √n (or a fixed number of chunks depending on input size). Elements belonging to the current chunk are pushed to stack B, then reinserted into A in sorted order.
+	The stack is divided into chunks of size √n. Elements belonging to the current chunk are pushed to stack B, then reinserted into A in sorted order.
 
 	- Reduces unnecessary rotations
 	- Balances number of pushes and rotations
