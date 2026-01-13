@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:00:44 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/13 12:43:49 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/13 13:08:00 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,12 +109,12 @@ int	check_args(char **av, t_stock *stock, int *begin)
 			return (1);
 		*begin += 1;
 	}
-	if (av[*begin + 1] == NULL && av[*begin][0] && av[*begin][1] && av[*begin][2])
+	if (av[*begin + 1] == NULL && av[*begin][0] && av[*begin][1])
 	{
-		if (has_duplicates_str(av[*begin]) == 0)
+		if (!has_duplicates_str(av[*begin]))
 		{
-		stock->tab = ft_split(av[*begin], ' ');
-		stock->split = 1;
+			stock->tab = ft_split(av[*begin], ' ');
+			stock->split = 1;
 		}
 	}
 	if (stock->tab != NULL)
