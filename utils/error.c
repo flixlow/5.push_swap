@@ -3,47 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 16:37:16 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:42:28 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_error(t_stack *a, t_stack *b, t_stock *stock)
+int	ft_error(t_stack *a, t_stack *b)
 {
-	freepile(a);
-	freepile(b);
-	(void)stock;
+	freestack(a);
+	freestack(b);
 	write(2, "Error\n", 6);
 	return (1);
 }
 
-void	freeall(t_stack *a, t_stack *b, t_stock *stock)
+void	freeall(t_stack *a, t_stack *b)
 {
-	freepile(a);
-	freepile(b);
-	(void)stock;
+	freestack(a);
+	freestack(b);
 }
 
-void	freestock(t_stock *stock)
-{
-	if (stock->bench != NULL)
-		free(stock->bench);
-	else if (stock->strategy != NULL)
-		free(stock->strategy);
-	else if (stock->theorical_complexity != NULL)
-		free(stock->theorical_complexity);
-}
-
-int	has_duplicates(t_stack *pile)
+int	has_duplicates(t_stack *stack)
 {
 	t_list	*i;
 	t_list	*j;
 
-	i = pile->first;
+	i = stack->first;
 	while (i)
 	{
 		j = i->next;
@@ -54,6 +42,25 @@ int	has_duplicates(t_stack *pile)
 			j = j->next;
 		}
 		i = i->next;
+	}
+	return (0);
+}
+int	has_duplicates_str(char *str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i])
+	{
+		j = i + 1;
+		while (str[j])
+		{
+			if (str[i] == str[j])
+				return (1);
+			j++;
+		}
+		i++;
 	}
 	return (0);
 }

@@ -23,7 +23,7 @@ SRC = $(addprefix ft_printf/, $(PRINTF))\
 BONUS = main_bonus.c \
 		utils1_bonus.c \
 		utils2_bonus.c \
-		init_pile_bonus.c \
+		init_stack_bonus.c \
 		error_bonus.c \
 		get_next_line_bonus.c \
 		push_bonus.c \

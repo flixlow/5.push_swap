@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 19:50:27 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:42:50 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,27 +72,28 @@ void				rra(t_stack *stack_a);
 void				rrb(t_stack *stack_b);
 void				rrr(t_stack *stack_a, t_stack *stack_b);
 
-t_stack				*createpile(void);
+t_stack				*creatstack(void);
 int					init_stack(t_stack *a, char **av);
-void				freepile(t_stack *stack);
+void				freestack(t_stack *stack);
 float				compute_disorder(t_stack *stack);
 
 void				algo_choice(t_stock *stock, t_stack *a, t_stack *b);
 void				adaptive(t_stack *a, t_stack *b);
-void				insertion_sort(t_stack *pile_a, t_stack *pile_b);
-void				chunk_sort(t_stack *pile_a, t_stack *pile_b);
-int					lstlen(t_stack *pile);
-int					*cpy_chunk(t_list *pile, int size);
+void				insertion_sort(t_stack *stack_a, t_stack *stack_b);
+void				chunk_sort(t_stack *stack_a, t_stack *stack_b);
+int					lstlen(t_stack *stack);
+int					*cpy_chunk(t_list *stack, int size);
 void				sort_arr(int *arr, int size);
-void				index_arr(t_list *pile, int *arr, int size);
+void				index_arr(t_list *stack, int *arr, int size);
 void				push_to_b(t_stack *a, t_stack *b, int chunk);
 void				push_chunk(t_stack *a, t_stack *b);
 int					find_max_index(t_stack *b);
 int					find_pos_index(t_stack *b, int index);
-void				radix_sort(t_stack *pile_a, t_stack *pile_b);
-void				radix_sort_bits(t_stack *pile_a, t_stack *pile_b, int bit);
+void				radix_sort(t_stack *stack_a, t_stack *stack_b);
+void				radix_sort_bits(t_stack *stack_a, t_stack *stack_b,
+						int bit);
 
-void				assign_index(t_stack *pile_a);
+void				assign_index(t_stack *stack_a);
 int					check_strategy(char *arg, t_stock *stock);
 int					check_args(char **av, t_stock *stock, int *begin);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -100,7 +101,7 @@ char				*ft_strcpy(char *src);
 int					check_digits(char **tab, int begin, t_stock *stock);
 
 int					check_format(const char *str, va_list argptr);
-int					is_sorted(t_stack *pile_a);
+int					is_sorted(t_stack *stack_a);
 int					check_overflow(int content, char *str);
 
 int					ft_printf(const char *str, ...);
@@ -123,14 +124,14 @@ char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
 char				**ft_free(char **tab);
 
-int					ft_error(t_stack *a, t_stack *b, t_stock *stock);
-void				freestock(t_stock *stock);
-void				freeall(t_stack *a, t_stack *b, t_stock *stock);
+int					ft_error(t_stack *a, t_stack *b);
+void				freeall(t_stack *a, t_stack *b);
 
 int					sorted_free(t_stack *a, t_stack *b);
-int					has_duplicates(t_stack *pile);
+int					has_duplicates(t_stack *stack);
 int					ft_sqrt(int nb);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 int					init(t_stack *a, t_stack *b, char **av);
+int					has_duplicates_str(char *str);
 
 #endif

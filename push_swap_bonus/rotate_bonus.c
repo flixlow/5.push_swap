@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:40:11 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 17:37:32 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:25:50 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	rotate(t_list **pile)
+void	rotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
 
-	if (*pile == NULL || (*pile)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	first = *pile;
-	last = *pile;
+	first = *stack;
+	last = *stack;
 	while (last->next)
 		last = last->next;
-	*pile = (*pile)->next;
+	*stack = (*stack)->next;
 	last->next = first;
 	first->next = NULL;
 }
 
-void	rr(t_list **pile_a, t_list **pile_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	rotate(pile_a);
-	rotate(pile_b);
+	rotate(stack_a);
+	rotate(stack_b);
 }

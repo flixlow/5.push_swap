@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_pile_bonus.c                                  :+:      :+:    :+:   */
+/*   init_stack_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:29:40 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 18:08:53 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:27:15 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_overflow(int content, char *str)
 	return (0);
 }
 
-int	init_pile(t_list **pile_a, char **tab)
+int	init_stack(t_list **stack_a, char **tab)
 {
 	t_list	*new;
 	t_list	*last;
@@ -65,8 +65,8 @@ int	init_pile(t_list **pile_a, char **tab)
 			return (1);
 		new->content = ft_atoi(tab[i]);
 		new->next = NULL;
-		if (*pile_a == NULL)
-			*pile_a = new;
+		if (*stack_a == NULL)
+			*stack_a = new;
 		else
 			last->next = new;
 		last = new;
@@ -77,51 +77,51 @@ int	init_pile(t_list **pile_a, char **tab)
 	return (0);
 }
 
-int	operation_on_pile(char **operation, t_list **pile_a, t_list **pile_b)
+int	operation_on_stack(char **operation, t_list **stack_a, t_list **stack_b)
 {
 	if (ft_strcmp(*operation, "pa\n") == 0)
-		push(pile_a, pile_b);
+		push(stack_a, stack_b);
 	else if (ft_strcmp(*operation, "pb\n") == 0)
-		push(pile_b, pile_a);
+		push(stack_b, stack_a);
 	else if (ft_strcmp(*operation, "sa\n") == 0)
-		swap(pile_a);
+		swap(stack_a);
 	else if (ft_strcmp(*operation, "sb\n") == 0)
-		swap(pile_b);
+		swap(stack_b);
 	else if (ft_strcmp(*operation, "ss\n") == 0)
-		ss(pile_a, pile_b);
+		ss(stack_a, stack_b);
 	else if (ft_strcmp(*operation, "ra\n") == 0)
-		rotate(pile_a);
+		rotate(stack_a);
 	else if (ft_strcmp(*operation, "rb\n") == 0)
-		rotate(pile_b);
+		rotate(stack_b);
 	else if (ft_strcmp(*operation, "rr\n") == 0)
-		rr(pile_a, pile_b);
+		rr(stack_a, stack_b);
 	else if (ft_strcmp(*operation, "rra\n") == 0)
-		revrotate(pile_a);
+		revrotate(stack_a);
 	else if (ft_strcmp(*operation, "rrb\n") == 0)
-		revrotate(pile_b);
+		revrotate(stack_b);
 	else if (ft_strcmp(*operation, "rrr\n") == 0)
-		rrr(pile_a, pile_b);
+		rrr(stack_a, stack_b);
 	else
-		return (ft_error(pile_a, pile_b, operation));
+		return (ft_error(stack_a, stack_b, operation));
 	return (0);
 }
 
-int	init(char **av, t_list **pile_a, t_list **pile_b)
+int	init(char **av, t_list **stack_a, t_list **stack_b)
 {
 	char	**tab;
 
 	tab = NULL;
-	*pile_a = NULL;
+	*stack_a = NULL;
 	if (av[2] == NULL)
 		tab = ft_split(av[1], ' ');
 	else
 		tab = av + 1;
-	if (!(tab)[1] || check_digits(tab) || init_pile(pile_a, tab) ||
-		has_duplicates(*pile_a))
+	if (!(tab)[1] || check_digits(tab) || init_stack(stack_a, tab) ||
+		has_duplicates(*stack_a))
 	{
 		if (!(tab == av + 1))
 			ft_free_tab(tab);
-		return (freeall(pile_a, pile_b, "Error\n"));
+		return (freeall(stack_a, stack_b, "Error\n"));
 	}
 	if (!(tab == av + 1))
 		ft_free_tab(tab);

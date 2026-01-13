@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:18:45 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 18:09:50 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:24:58 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	main(int ac, char **av)
 {
-	t_list	*pile_a;
-	t_list	*pile_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 	char	*operation;
 
-	pile_b = NULL;
+	stack_b = NULL;
 	operation = NULL;
 	if (ac <= 1)
 		return (0);
-	if (init(av, &pile_a, &pile_b))
+	if (init(av, &stack_a, &stack_b))
 		return (0);
 	operation = get_next_line(0);
 	while (operation)
 	{
-		if (operation_on_pile(&operation, &pile_a, &pile_b))
+		if (operation_on_stack(&operation, &stack_a, &stack_b))
 			return (0);
 		free(operation);
 		operation = get_next_line(0);
 	}
-	if (is_sorted(pile_a) && pile_b == NULL)
-		freeall(&pile_a, &pile_b, "OK\n");
+	if (is_sorted(stack_a) && stack_b == NULL)
+		freeall(&stack_a, &stack_b, "OK\n");
 	else
-		return (freeall(&pile_a, &pile_b, "KO\n"));
+		return (freeall(&stack_a, &stack_b, "KO\n"));
 	return (0);
 }

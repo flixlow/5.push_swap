@@ -6,7 +6,7 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:09:48 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 19:56:05 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:22:42 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,26 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-void	swap(t_list **pile);
-void	ss(t_list **pile_a, t_list **pile_b);
+void	swap(t_list **stack);
+void	ss(t_list **stack_a, t_list **stack_b);
 void	push(t_list **receiver, t_list **sender);
-void	rotate(t_list **pile);
-void	rr(t_list **pile_a, t_list **pile_b);
-void	revrotate(t_list **pile);
-void	rrr(t_list **pile_a, t_list **pile_b);
+void	rotate(t_list **stack);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	revrotate(t_list **stack);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
-int		init(char **av, t_list **pile_a, t_list **pile_b);
-int		init_pile(t_list **pile_a, char **tab);
-int		operation_on_pile(char **operation, t_list **pile_a, t_list **pile_b);
-int		freepile(t_list **pile);
+int		init(char **av, t_list **stack_a, t_list **stack_b);
+int		init_stack(t_list **stack_a, char **tab);
+int		operation_on_stack(char **operation, t_list **stack_a, t_list **stack_b);
+int		freestack(t_list **stack);
 
 int		check_digits(char **tab);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *src);
-int		is_sorted(t_list *pile);
-int		ft_error(t_list **pile_a, t_list **pile_b, char **op);
-int		freeall(t_list **pile_a, t_list **pile_b, char *oko);
-int		has_duplicates(t_list *pile);
+int		is_sorted(t_list *stack);
+int		ft_error(t_list **stack_a, t_list **stack_b, char **op);
+int		freeall(t_list **stack_a, t_list **stack_b, char *oko);
+int		has_duplicates(t_list *stack);
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buf);

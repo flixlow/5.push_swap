@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:39:32 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 17:37:34 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:26:10 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	swap(t_list **pile)
+void	swap(t_list **stack)
 {
 	t_list	*first;
 	t_list	*second;
 
-	if (*pile == NULL || (*pile)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	first = *pile;
-	second = (*pile)->next;
+	first = *stack;
+	second = (*stack)->next;
 	first->next = second->next;
 	second->next = first;
-	*pile = second;
+	*stack = second;
 }
 
-void	ss(t_list **pile_a, t_list **pile_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
-	swap(pile_a);
-	swap(pile_b);
+	swap(stack_a);
+	swap(stack_b);
 }

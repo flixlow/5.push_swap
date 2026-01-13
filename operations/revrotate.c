@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   revrotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 11:40:16 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/07 10:21:16 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:18:11 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	revrotate(t_stack *pile)
+void	revrotate(t_stack *stack)
 {
 	t_list	*last;
 	t_list	*befor_last;
 
-	if (!pile || !pile->first || !pile->first->next)
+	if (!stack || !stack->first || !stack->first->next)
 		return ;
-	last = pile->first;
+	last = stack->first;
 	befor_last = NULL;
 	while (last->next)
 	{
@@ -27,31 +27,31 @@ void	revrotate(t_stack *pile)
 		last = last->next;
 	}
 	befor_last->next = NULL;
-	last->next = pile->first;
-	pile->first = last;
+	last->next = stack->first;
+	stack->first = last;
 }
 
-void	rra(t_stack *pile_a)
+void	rra(t_stack *stack_a)
 {
-	revrotate(pile_a);
-	pile_a->stock->reverse_rotate_a += 1;
-	pile_a->stock->total += 1;
+	revrotate(stack_a);
+	stack_a->stock->reverse_rotate_a += 1;
+	stack_a->stock->total += 1;
 	ft_printf("rra\n");
 }
 
-void	rrb(t_stack *pile_b)
+void	rrb(t_stack *stack_b)
 {
-	revrotate(pile_b);
-	pile_b->stock->reverse_rotate_b += 1;
-	pile_b->stock->total += 1;
+	revrotate(stack_b);
+	stack_b->stock->reverse_rotate_b += 1;
+	stack_b->stock->total += 1;
 	ft_printf("rrb\n");
 }
 
-void	rrr(t_stack *pile_a, t_stack *pile_b)
+void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	revrotate(pile_a);
-	revrotate(pile_b);
-	pile_a->stock->reverse_rotate_ab += 1;
-	pile_a->stock->total += 1;
+	revrotate(stack_a);
+	revrotate(stack_b);
+	stack_a->stock->reverse_rotate_ab += 1;
+	stack_a->stock->total += 1;
 	ft_printf("rrr\n");
 }

@@ -6,19 +6,19 @@
 /*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 14:23:25 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/10 18:21:02 by mobenhab         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:16:24 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	is_sorted(t_stack *pile_a)
+int	is_sorted(t_stack *stack_a)
 {
 	t_list	*tmp;
 
-	if (!pile_a || !pile_a->first)
+	if (!stack_a || !stack_a->first)
 		return (1);
-	tmp = pile_a->first;
+	tmp = stack_a->first;
 	while (tmp->next)
 	{
 		if (tmp->content > tmp->next->content)

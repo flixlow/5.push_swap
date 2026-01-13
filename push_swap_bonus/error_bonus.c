@@ -3,61 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flauweri <flauweri@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenhab <mobenhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:56:55 by mobenhab          #+#    #+#             */
-/*   Updated: 2026/01/12 17:59:01 by flauweri         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:22:23 by mobenhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-int	freepile(t_list **pile)
+int	freestack(t_list **stack)
 {
 	t_list	*current;
 	t_list	*next;
 
-	if (*pile == NULL)
+	if (*stack == NULL)
 		return (1);
-	current = (*pile)->next;
+	current = (*stack)->next;
 	while (current)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	free(*pile);
+	free(*stack);
 	return (1);
 }
 
-int	ft_error(t_list **pile_a, t_list **pile_b, char **op)
+int	ft_error(t_list **stack_a, t_list **stack_b, char **op)
 {
-	freepile(pile_a);
-	freepile(pile_b);
+	freestack(stack_a);
+	freestack(stack_b);
 	if (*op)
 		free(*op);
 	write(2, "Error\n", 6);
 	return (1);
 }
 
-int	freeall(t_list **pile_a, t_list **pile_b, char *oko)
+int	freeall(t_list **stack_a, t_list **stack_b, char *oko)
 {
 	int	i;
 
 	i = 0;
-	freepile(pile_a);
-	freepile(pile_b);
+	freestack(stack_a);
+	freestack(stack_b);
 	while (oko && oko[i])
 		write(1, &oko[i++], 1);
 	return (1);
 }
 
-int	has_duplicates(t_list *pile)
+int	has_duplicates(t_list *stack)
 {
 	t_list	*i;
 	t_list	*j;
 
-	i = pile;
+	i = stack;
 	while (i)
 	{
 		j = i->next;
@@ -72,15 +72,15 @@ int	has_duplicates(t_list *pile)
 	return (0);
 }
 
-int	is_sorted(t_list *pile)
+int	is_sorted(t_list *stack)
 {
-	if (pile == NULL || pile->next == NULL)
+	if (stack == NULL || stack->next == NULL)
 		return (1);
-	while (pile->next)
+	while (stack->next)
 	{
-		if (pile->content > pile->next->content)
+		if (stack->content > stack->next->content)
 			return (0);
-		pile = pile->next;
+		stack = stack->next;
 	}
 	return (1);
 }
