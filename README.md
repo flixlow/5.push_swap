@@ -1,6 +1,6 @@
 _This project was created as part of the 42 curriculum by mobenhab and flauweri._
 
-# 📌 Description
+# Description
 
 push_swap is a sorting algorithm project from the Codam / School 42 core curriculum.
 
@@ -18,9 +18,9 @@ Example:
 sa\
 rra
 
-# ⚙️ Instructions
+# Instructions
 
-## 🔧 Compilation
+## Compilation
 
 to compile the project : 
 
@@ -28,7 +28,7 @@ to compile the project :
 
 This will generate the push_swap executable.
 
-## ▶️ Usage
+## Usage
 
 Provide a list of integers:
 
@@ -48,7 +48,7 @@ Benchmark mode displays, after sorting: ```--bench```
 - The total number of operations.
 - The count of each operation type (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr).
 
-## ✔️ Checking the result
+## Checking the result
 
 Download the appropriate checker for your OS in the repository, then run:
 
@@ -56,7 +56,7 @@ Download the appropriate checker for your OS in the repository, then run:
 
 Expected output: ```OK```
 
-## 🔁 Generate Random Lists for Testing
+## Generate Random Lists for Testing
 
 100 random numbers (0–1000): 
 
@@ -66,11 +66,11 @@ Expected output: ```OK```
 
 ```ARG=$(shuf -i 0-10000 -n 500); ./push_swap $ARG | ./checker_linux $ARG```
 
-## 📏 Count the Number of Operations
+## Count the Number of Operations
 
 Useful for evaluating performance: ```ARG=$(shuf -i 0-1000 -n 100); ./push_swap $ARG | wc -l```
 
-# 📚 Resources
+# Resources
 
 
 - AI was used to discuss about algorithm choice, display float, 
